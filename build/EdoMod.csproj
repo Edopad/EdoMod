@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B07BDC3C-3770-4A07-90D8-5C2A68E2172B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DuckGame.EdoMod</RootNamespace>
+    <AssemblyName>EdoMod</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DuckGame">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Duck Game\DuckGame.exe</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Steam">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Duck Game\Steam.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\hats\EdoHat.cs" />
+    <Compile Include="src\core\ModSettings.cs" />
+    <Compile Include="src\hats\EdoHatCQ.cs" />
+    <Compile Include="src\hats\quack\AirHat.cs" />
+    <Compile Include="src\hats\quack\BreadfishHat.cs" />
+    <Compile Include="src\hats\quack\CensoredHat.cs" />
+    <Compile Include="src\hats\dev\DenHat.cs" />
+    <Compile Include="src\hats\quack\FiretruckHat.cs" />
+    <Compile Include="src\hats\quack\GullHat.cs" />
+    <Compile Include="src\hats\quack\HahaHat.cs" />
+    <Compile Include="src\hats\quack\HitmarkHat.cs" />
+    <Compile Include="src\hats\quack\JarJarHat.cs" />
+    <Compile Include="src\hats\quack\NootHat.cs" />
+    <Compile Include="src\hats\randomquack\ShaunHat.cs" />
+    <Compile Include="src\core\EdoMain.cs" />
+    <Compile Include="src\core\EdoExtensions.cs" />
+    <Compile Include="src\core\EdoMod.cs" />
+    <Compile Include="src\hats\quack\ShaunMPHat.cs" />
+    <Compile Include="src\hats\randomquack\DoItHat.cs" />
+    <Compile Include="src\hats\quack\ShedHat.cs" />
+    <Compile Include="src\hats\quack\WeedHat.cs" />
+    <Compile Include="src\hats\special\BombHat.cs" />
+    <Compile Include="src\hats\special\ChickenHat.cs" />
+    <Compile Include="src\hats\dev\MilkHat.cs" />
+    <Compile Include="src\hats\special\DittoHat.cs" />
+    <Compile Include="src\hats\special\NoHat.cs" />
+    <Compile Include="src\hats\special\PiesHat.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

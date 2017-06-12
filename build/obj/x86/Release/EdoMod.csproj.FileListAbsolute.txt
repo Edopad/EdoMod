@@ -1,0 +1,3 @@
+C:\Users\mgrant\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Release\EdoMod.dll
+C:\Users\mgrant\Documents\DuckGame\Mods\EdoMod\EdoMod.dll
+C:\Users\mgrant\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Release\EdoMod.csprojResolveAssemblyReference.cache
