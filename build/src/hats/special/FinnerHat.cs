@@ -28,7 +28,17 @@
 
         public override void Quack(float volume, float pitch)
         {
-            SFX.Play(Mod.GetPath<EdoMod>("SFX\\smokeweedeveryday"), volume, pitch);
+
+            Pie magnumShell = new Pie(equippedDuck.x + Rando.Float(-4, 4), equippedDuck.y);
+
+            magnumShell.vSpeed = (-1.5f - Rando.Float(1f));
+            magnumShell.hSpeed = (Rando.Float(-2f, 2f));
+
+            magnumShell.depth = depth - 1;
+            Level.Add((Thing)magnumShell);
+
+            base.Quack(volume, pitch);
+            //SFX.Play(Mod.GetPath<EdoMod>("SFX\\smokeweedeveryday"), volume, pitch);
         }
 
         public override void Update()
@@ -49,7 +59,7 @@
 
             Vec2 rsaim = equippedDuck.inputProfile.rightStick;
 
-            if (angle != 00 || !equippedDuck.IsQuacking()) return;
+            if (!equippedDuck.IsQuacking()) return;
             //add pies
             {
                 Pie magnumShell = new Pie(equippedDuck.x + Rando.Float(-4, 4), equippedDuck.y);
@@ -79,7 +89,7 @@
           : base(xpos, ypos)
             {
                 this._sprite = new Sprite(Mod.GetPath<EdoMod>("images\\finner"));
-                this.scale = new Vec2(0.2f);
+                this.scale = new Vec2(1f);
                 this.graphic = (Sprite)this._sprite;
                 this.center = new Vec2(5, 3);
                 //this.depth = (Depth)(0.3f + Rando.Float(0.0f, 0.1f));
