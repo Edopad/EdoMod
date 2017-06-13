@@ -131,26 +131,24 @@ namespace DuckGame.EdoMod
             }
         }
 
-        
-    }
-
-    public class Pie : PhysicsParticle
-    {
-        private Sprite _sprite;
-        public Pie(float xpos, float ypos)
-      : base(xpos, ypos)
+        private class Pie : PhysicsParticle
         {
-            this._sprite = new Sprite(Mod.GetPath<EdoMod>("hats\\particles\\piepart"));
-            this.scale = new Vec2(1f);
-            this.graphic = (Sprite)this._sprite;
-            this.center = new Vec2(5, 3);
-            //this.depth = (Depth)(0.3f + Rando.Float(0.0f, 0.1f));
-        }
+            private Sprite _sprite;
+            public Pie(float xpos, float ypos)
+          : base(xpos, ypos)
+            {
+                this._sprite = new Sprite(Mod.GetPath<EdoMod>("hats\\particles\\piepart"));
+                this.scale = new Vec2(1f);
+                this.graphic = (Sprite)this._sprite;
+                this.center = new Vec2(5, 3);
+                //this.depth = (Depth)(0.3f + Rando.Float(0.0f, 0.1f));
+            }
 
-        public override void Update()
-        {
-            base.Update();
-            this._angle = Maths.DegToRad(-this._spinAngle);
+            public override void Update()
+            {
+                base.Update();
+                this._angle = Maths.DegToRad(-this._spinAngle);
+            }
         }
     }
 }

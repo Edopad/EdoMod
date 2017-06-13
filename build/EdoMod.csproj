@@ -82,6 +82,7 @@
     <Compile Include="src\hats\special\ChickenHat.cs" />
     <Compile Include="src\hats\dev\MilkHat.cs" />
     <Compile Include="src\hats\special\DittoHat.cs" />
+    <Compile Include="src\hats\special\FinnerHat.cs" />
     <Compile Include="src\hats\special\NoHat.cs" />
     <Compile Include="src\hats\special\PiesHat.cs" />
   </ItemGroup>

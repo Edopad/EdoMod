@@ -70,6 +70,8 @@ namespace DuckGame.EdoMod
                             ReplaceHat(teamHat, new ChickenHat(teamHat.x, teamHat.y, teamHat.team));
                         if (PiesHat.isHat(teamHat))
                             ReplaceHat(teamHat, new PiesHat(teamHat.x, teamHat.y, teamHat.team));
+                        if (FinnerHat.isHat(teamHat))
+                            ReplaceHat(teamHat, new FinnerHat(teamHat.x, teamHat.y, teamHat.team));
                         //Developer Hats
                         if (DenHat.isHat(teamHat))
                             ReplaceHat(teamHat, new DenHat(teamHat.x, teamHat.y, teamHat.team));

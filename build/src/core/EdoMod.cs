@@ -110,6 +110,8 @@ namespace DuckGame.EdoMod
             DittoHat.addHat();
             //asdf movie: Pie Flavor!
             PiesHat.addHat();
+            //Fidget Spinners
+            FinnerHat.addHat();
 
             //Developer Hats
             if ((ModSettings.isDeveloper || ModSettings.isFriend) && ModSettings.enableDevHats)
