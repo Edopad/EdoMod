@@ -4,7 +4,7 @@
     {
         public static string hatName = "Finner";
 
-        public static string hatPath = "hats\\weed";
+        public static string hatPath = "hats\\template";
 
         public static short texindex;
 
@@ -88,7 +88,7 @@
             public Pie(float xpos, float ypos)
           : base(xpos, ypos)
             {
-                this._sprite = new Sprite(Mod.GetPath<EdoMod>("images\\finner"));
+                this._sprite = new Sprite(Mod.GetPath<EdoMod>("hats\\particles\\finner"));
                 this.scale = new Vec2(1f);
                 this.graphic = (Sprite)this._sprite;
                 this.center = new Vec2(5, 3);
