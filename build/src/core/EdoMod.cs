@@ -68,6 +68,10 @@ namespace DuckGame.EdoMod
             Teams.core.teams.Add(new Team("Grumpy", GetPath<EdoMod>("hats\\grumpycat")));
             //Schrödinger's Cat
             Teams.core.teams.Add(new Team("Schrodinger's Hat", GetPath<EdoMod>("hats\\schrodinger")));
+            //MissingNo from Pokemon. Duck Game style.
+            Teams.core.teams.Add(new Team("MissingNo", GetPath<EdoMod>("hats\\missingno")));
+
+
             //Add dynamic hats!
 
             //Heavy Rain Glitch ("Press X to Shaun!")
