@@ -23,12 +23,7 @@
         public WeedHat(float x, float y, Team t)
             : base(x, y, t)
         {
-            
-        }
-
-        public override void Quack(float volume, float pitch)
-        {
-            SFX.Play(Mod.GetPath<EdoMod>("SFX\\smokeweedeveryday"), volume, pitch);
+            setquack(Mod.GetPath<EdoMod>("SFX\\smokeweedeveryday"));
         }
     }
 }

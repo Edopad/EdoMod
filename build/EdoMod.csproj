@@ -59,7 +59,6 @@
   <ItemGroup>
     <Compile Include="src\hats\EdoHat.cs" />
     <Compile Include="src\core\ModSettings.cs" />
-    <Compile Include="src\hats\EdoHatCQ.cs" />
     <Compile Include="src\hats\quack\AirHat.cs" />
     <Compile Include="src\hats\quack\BreadfishHat.cs" />
     <Compile Include="src\hats\quack\CensoredHat.cs" />

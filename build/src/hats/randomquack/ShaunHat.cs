@@ -25,12 +25,17 @@ namespace DuckGame.EdoMod
         public ShaunHat(float x, float y, Team t)
             : base(x, y, t)
         {
-
+            string[] quacks = {
+                Mod.GetPath<EdoMod>("SFX\\shaun1"),
+                Mod.GetPath<EdoMod>("SFX\\shaun2"),
+                Mod.GetPath<EdoMod>("SFX\\shaun3")
+            };
+            setquack(quacks);
         }
 
-        public override void Quack(float volume, float pitch)
+       /* public override void Quack(float volume, float pitch)
         {
             SFX.Play(Mod.GetPath<EdoMod>("SFX\\shaun" + (new Random().Next(0, 3) + 1)), volume, pitch);
-        }
+        }*/
     }
 }

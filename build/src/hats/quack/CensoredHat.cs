@@ -21,9 +21,16 @@
                 killquack();
                 return;
             }
-            /*if (playing != null) playing.Pitch = equippedDuck.quackPitch;*/
 
-            if (!equippedDuck.IsQuacking()) killquack();
+
+            /*if (playing != null) playing.Pitch = equippedDuck.quackPitch;*/
+            if(equippedDuck.IsQuacking()) {
+                if (playing == null)
+                {
+                    playing = SFX.Play(Mod.GetPath<EdoMod>("SFX\\bleep_ss"), 1f, 0f, 0f, true);
+                }
+            }
+            else killquack();
         }
 
         public override void Terminate()
@@ -54,14 +61,6 @@
             : base(x, y, t)
         {
 
-        }
-
-        public override void Quack(float volume, float pitch)
-        {
-            if (playing == null)
-            {
-                playing = SFX.Play(Mod.GetPath<EdoMod>("SFX\\bleep_ss"), volume, pitch, 0f, true);
-            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace DuckGame.EdoMod
+﻿using System.Collections.Generic;
+
+namespace DuckGame.EdoMod
 {
     abstract class EdoHat : TeamHat
     {
@@ -11,23 +13,28 @@
 
         public override void Terminate()
         {
-            //resetquack();
+            resetquack();
             base.Terminate();
         }
 
         public override void UnEquip()
         {
-            //resetquack();
+            resetquack();
             base.UnEquip();
         }
 
         //only used for quack workaround
         bool pquack = false;
 
+        private NetSoundEffect quackeff = new NetSoundEffect("quack");
+
         public override void Update()
         {
+            if (this.equippedDuck != null) this.equippedDuck._netQuack = quackeff;
+
             base.Update();
-            if(ModSettings.quackworkaround)
+
+            if (ModSettings.quackworkaround)
             {
                 if (equippedDuck != null)
                 {
@@ -42,6 +49,24 @@
         {
             if (equippedDuck != null)
                 equippedDuck._netQuack = new NetSoundEffect("quack");
+        }
+
+        public void setquack(string path)
+        {
+            quackeff = new NetSoundEffect(path);
+        }
+        public void setquack(string[] paths)
+        {
+            quackeff = new NetSoundEffect(paths);
+        }
+        public void setquack(List<string> common, List<string> rare)
+        {
+            quackeff = new NetSoundEffect(common, rare);
+        }
+
+        public override void Quack(float volume, float pitch)
+        {
+            quackeff.Play(volume, pitch);
         }
     }
 }

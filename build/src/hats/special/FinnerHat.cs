@@ -37,6 +37,9 @@
             magnumShell.depth = depth - 1;
             Level.Add((Thing)magnumShell);
 
+            
+            this.graphic = new Sprite(Mod.GetPath<EdoMod>("images\\finner"));
+
             base.Quack(volume, pitch);
             //SFX.Play(Mod.GetPath<EdoMod>("SFX\\smokeweedeveryday"), volume, pitch);
         }
@@ -88,17 +91,18 @@
             public Pie(float xpos, float ypos)
           : base(xpos, ypos)
             {
-                this._sprite = new Sprite(Mod.GetPath<EdoMod>("hats\\particles\\finner"));
-                this.scale = new Vec2(1f);
+                this._sprite = new Sprite(Mod.GetPath<EdoMod>("images\\finner"));
+                this.scale = new Vec2(0.01f);
                 this.graphic = (Sprite)this._sprite;
-                this.center = new Vec2(5, 3);
+                this.center = new Vec2(800, 800);
                 //this.depth = (Depth)(0.3f + Rando.Float(0.0f, 0.1f));
             }
 
             public override void Update()
             {
                 base.Update();
-                this._angle = Maths.DegToRad(-this._spinAngle);
+                this._angle += (float) (MathHelper.Pi / 30.0 * 1.0);
+                //this._angle = Maths.DegToRad(-this._spinAngle);
             }
         }
     }

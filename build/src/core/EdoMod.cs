@@ -9,8 +9,9 @@ using System.Xml.Linq;
 
 [assembly: AssemblyTitle("Michael's Hat Pack")]
 [assembly: AssemblyCompany("Edopad")]
-[assembly: AssemblyDescription("Duck Game but with memes instead of hats!")]
-[assembly: AssemblyVersion("1.3.5.9")]
+[assembly: AssemblyDescription("There's a hat for that!")]
+//"Duck Game but with memes instead of hats!"
+[assembly: AssemblyVersion("1.3.7.0")]
 
 
 

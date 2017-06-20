@@ -1,4 +1,6 @@
-﻿namespace DuckGame.EdoMod
+﻿using System.Collections.Generic;
+
+namespace DuckGame.EdoMod
 {
     class DittoHat : EdoHat
     {
@@ -26,13 +28,37 @@
 
         }
 
-        private int _copiesleft = 1;
+        bool infcopies = true;
+        private int _copiesleft = 5;
 
         public override void Quack(float volume, float pitch)
         {
             base.Quack(volume, pitch);
-            if (_copiesleft-- > 0) Level.Add(new DittoHat(x,y,team));
+            if (_copiesleft-- > 0 || infcopies) Level.Add(new DittoHat(x,y,team));
             //SFX.Play(Mod.GetPath<EdoMod>("SFX\\airhorn_long"), volume, pitch);
+            //for(Duck ducks in Level.current.)
+
+            IEnumerable<Thing> ducks = Level.current.things[typeof(Duck)];
+            Duck cd = this.equippedDuck;    //closest duck
+            float mindist = 100000f; //current min. distance
+            foreach (Duck d in ducks)
+            {
+                if (d == this.equippedDuck) continue;
+                if(d is DittoHat) continue;
+                float cdist = new Vec2(cd.position - d.position).length;
+                if (cdist == 1f) continue;
+                if (cdist < mindist)
+                {
+                    cd = d;
+                    mindist = cdist;
+                }
+            }
+            //replace current hat
+            Hat h = new TeamHat(0f, 0f, this.team);
+            
+            Level.Add(h);
+            cd.Equip(h, false, true);
+
         }
     }
 }
