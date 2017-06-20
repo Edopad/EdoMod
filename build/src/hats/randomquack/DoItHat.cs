@@ -35,16 +35,16 @@
 
         private string getquack()
         {
-            switch (Rando.Int(0, 7))
+            switch (Rando.Int(0, 14))
             {
-                case 0: return "doit";
+                case 0: return "yesyoucan";
                 case 1: return "dontletyourdreamsbedreams";
                 case 2: return "justdoit";
                 case 3: return "justdoit_2";
                 case 4: return "no";
                 case 5: return "nothingisimpossible";
                 case 6: return "stopgivingup";
-                default: return "yesyoucan";
+                default: return "doit";
             }
         }
     }
