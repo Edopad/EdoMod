@@ -10,6 +10,7 @@ namespace DuckGame.EdoMod
         /*Mod Settings*/
         public static bool enableDevHats = true;
         public static bool quackworkaround = false;
+        public static bool enableCustomIntro = true;
 
         
         public static ulong[] devs = new ulong[] {

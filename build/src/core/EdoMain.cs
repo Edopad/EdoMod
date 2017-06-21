@@ -77,6 +77,8 @@ namespace DuckGame.EdoMod
                             ReplaceHat(teamHat, new DenHat(teamHat.x, teamHat.y, teamHat.team));
                         if (MilkHat.isHat(teamHat))
                             ReplaceHat(teamHat, new MilkHat(teamHat.x, teamHat.y, teamHat.team));
+                        if (UpsideHat.isHat(teamHat))
+                            ReplaceHat(teamHat, new UpsideHat(teamHat.x, teamHat.y, teamHat.team));
                     }
                 }
                 List<Thing> removedHats = teamSpawnsDone.Keys.Except(Level.current.things[typeof(TeamHat)]).ToList();

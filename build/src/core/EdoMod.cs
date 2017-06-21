@@ -11,7 +11,7 @@ using System.Xml.Linq;
 [assembly: AssemblyCompany("Edopad")]
 [assembly: AssemblyDescription("There's a hat for that!")]
 //"Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.3.7.0")]
+[assembly: AssemblyVersion("1.3.7.1")]
 
 
 
@@ -125,6 +125,8 @@ namespace DuckGame.EdoMod
                 DenHat.addHat();
                 //Milk Hat
                 MilkHat.addHat();
+
+                UpsideHat.addHat();
             }
 
             base.OnPostInitialize();
@@ -135,6 +137,15 @@ namespace DuckGame.EdoMod
         
         private void ExecuteOnceLoaded()
         {
+            if(ModSettings.enableCustomIntro)
+            {
+                while (!(Level.current is EdoLogo) && !(Level.current is TeamSelect2))
+                {
+                    if (Level.current is CorptronLogo) Level.current = new EdoLogo();
+                    Thread.Sleep(20);
+                }
+            }
+            
             while (Level.current == null
                     || !(Level.current.ToString() == "DuckGame.TitleScreen"
                     || Level.current.ToString() == "DuckGame.TeamSelect2"))

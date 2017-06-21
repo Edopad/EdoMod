@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\core\EdoLogo.cs" />
     <Compile Include="src\hats\EdoHat.cs" />
     <Compile Include="src\core\ModSettings.cs" />
     <Compile Include="src\hats\quack\AirHat.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="src\hats\special\FinnerHat.cs" />
     <Compile Include="src\hats\special\NoHat.cs" />
     <Compile Include="src\hats\special\PiesHat.cs" />
+    <Compile Include="src\hats\special\UpsideHat.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
