@@ -39,7 +39,7 @@ namespace DuckGame.EdoMod
                 if (equippedDuck != null)
                 {
                     bool cquack = equippedDuck.IsQuacking();
-                    if (cquack && !pquack) this.Quack(1f, equippedDuck.quackPitch);
+                    if (cquack && !pquack && Network.isActive) Quack(1f, equippedDuck.quackPitch);
                     pquack = cquack;
                 }
             }
