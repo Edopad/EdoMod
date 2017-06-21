@@ -3,4 +3,7 @@
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>D:\MySteamLibrary\steamapps\common\Duck Game\</ReferencePath>
+  </PropertyGroup>
 </Project>

@@ -4,3 +4,6 @@ C:\Users\mgrant\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Release\EdoMod.cspr
 C:\Users\adminmig\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Release\EdoMod.csprojResolveAssemblyReference.cache
 C:\Users\adminmig\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Release\EdoMod.dll
 C:\Users\adminmig\Documents\DuckGame\Mods\EdoMod\EdoMod.dll
+D:\samus7266\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Release\EdoMod.csprojResolveAssemblyReference.cache
+D:\samus7266\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Release\EdoMod.dll
+D:\samus7266\Documents\DuckGame\Mods\EdoMod\EdoMod.dll

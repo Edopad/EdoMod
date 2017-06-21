@@ -11,8 +11,8 @@ using System.Xml.Linq;
 [assembly: AssemblyCompany("Edopad")]
 [assembly: AssemblyDescription("There's a hat for that!")]
 //"Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.3.7.2")]
-
+[assembly: AssemblyVersion("1.3.7.3")]
+//Added Groot Hat
 
 
 namespace DuckGame.EdoMod
@@ -39,7 +39,7 @@ namespace DuckGame.EdoMod
 
             //TODO:
             //add Thomas the Train hat
-            //CUSTOMIZE groot! hat
+            //CUSTOMIZE groot! hat CHECK
             //add nayan hat (full)
             //add traffic cone hat, "VLC"
             //[?] super long subway hat

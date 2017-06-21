@@ -65,6 +65,7 @@
     <Compile Include="src\hats\quack\CensoredHat.cs" />
     <Compile Include="src\hats\dev\DenHat.cs" />
     <Compile Include="src\hats\quack\FiretruckHat.cs" />
+    <Compile Include="src\hats\quack\GrootHat.cs" />
     <Compile Include="src\hats\quack\GullHat.cs" />
     <Compile Include="src\hats\quack\HahaHat.cs" />
     <Compile Include="src\hats\quack\HitmarkHat.cs" />
