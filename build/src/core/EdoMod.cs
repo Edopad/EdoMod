@@ -77,7 +77,7 @@ namespace DuckGame.EdoMod
 
             //Heavy Rain Glitch ("Press X to Shaun!")
             ShaunHat.addHat();
-            ShaunMPHat.addHat();
+            //ShaunMPHat.addHat();
             //Woody the Woodpecker laugh
             HahaHat.addHat();
             //noot!
