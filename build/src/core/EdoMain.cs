@@ -59,6 +59,8 @@ namespace DuckGame.EdoMod
                             ReplaceHat(teamHat, new DoItHat(teamHat.x, teamHat.y, teamHat.team));
                         if (JarJarHat.isHat(teamHat))
                             ReplaceHat(teamHat, new JarJarHat(teamHat.x, teamHat.y, teamHat.team));
+                        if (GrootHat.isHat(teamHat))
+                            ReplaceHat(teamHat, new GrootHat(teamHat.x, teamHat.y, teamHat.team));
                         //Special Hats
                         if (NoHat.isHat(teamHat))
                             ReplaceHat(teamHat, new NoHat(teamHat.x, teamHat.y, teamHat.team));

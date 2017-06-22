@@ -1,6 +1,6 @@
 ﻿namespace DuckGame.EdoMod
 {
-    class Groot : EdoHat
+    class GrootHat : EdoHat
     {
         public static string hatName = "Groot";
         public static string hatPath = "hats\\groot";
@@ -19,10 +19,10 @@
             return teamHat.sprite.texture.textureIndex == texindex && !(teamHat is EdoHat);
         }
 
-        public Groot(float x, float y, Team t)
+        public GrootHat(float x, float y, Team t)
             : base(x, y, t)
         {
-            setquack(Mod.GetPath<EdoMod>("SFX\\Groot"));
+            setquack(Mod.GetPath<EdoMod>("SFX\\groot\\groot-1"));
         }
     }
 }

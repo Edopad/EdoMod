@@ -58,7 +58,7 @@ namespace DuckGame.EdoMod
             //Movie: "Rubber"
             Teams.core.teams.Add(new Team("Rubber", GetPath<EdoMod>("hats\\rubber")));
             //Guardians of the Galaxy
-            Teams.core.teams.Add(new Team("Groot", GetPath<EdoMod>("hats\\groot")));
+            //Teams.core.teams.Add(new Team("Groot", GetPath<EdoMod>("hats\\groot")));
             //2016/2017 U.S. Presidential Election
             Teams.core.teams.Add(new Team("Trillary", GetPath<EdoMod>("hats\\trillary")));
             //[[Redacted]]
@@ -103,6 +103,8 @@ namespace DuckGame.EdoMod
             DoItHat.addHat();
             //Jar Jar Binks, "Oh no!" -Star Wars
             JarJarHat.addHat();
+            //Guardians of the Galaxy : Groot
+            GrootHat.addHat();
 
             //Special Hats! These do things!
             //NO!
