@@ -87,6 +87,8 @@
     <Compile Include="src\hats\special\NoHat.cs" />
     <Compile Include="src\hats\special\PiesHat.cs" />
     <Compile Include="src\hats\special\UpsideHat.cs" />
+    <Compile Include="src\turban\Turban.cs" />
+    <Compile Include="src\turban\TurbanData.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
