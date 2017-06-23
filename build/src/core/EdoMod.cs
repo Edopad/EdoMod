@@ -11,7 +11,7 @@ using System.Xml.Linq;
 [assembly: AssemblyCompany("Edopad")]
 [assembly: AssemblyDescription("There's a hat for that!")]
 //"Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.3.7.4")]
+[assembly: AssemblyVersion("1.3.7.5")]
 //Added Groot Hat
 
 
