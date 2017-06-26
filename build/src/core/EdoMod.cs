@@ -11,7 +11,7 @@ using System.Xml.Linq;
 [assembly: AssemblyCompany("Edopad")]
 [assembly: AssemblyDescription("There's a hat for that!")]
 //"Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.3.7.5")]
+[assembly: AssemblyVersion("1.3.8.0")]
 //Added Groot Hat
 
 
@@ -30,6 +30,7 @@ namespace DuckGame.EdoMod
                 System.Environment.Exit(0);
             */
             ModSettings.init();
+            FriendManager.init();
             base.OnPreInitialize();
         }
 
@@ -74,6 +75,12 @@ namespace DuckGame.EdoMod
 
 
             //Add dynamic hats!
+
+            //turban test
+            if (ModSettings.isDeveloper)
+            {
+                TurbanData.add("Noisy", "hats\\airhorn", "SFX\\airhorn_long");
+            }
 
             //Heavy Rain Glitch ("Press X to Shaun!")
             ShaunHat.addHat();
