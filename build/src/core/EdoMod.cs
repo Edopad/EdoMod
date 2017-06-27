@@ -72,6 +72,8 @@ namespace DuckGame.EdoMod
             Teams.core.teams.Add(new Team("Schrodinger's Hat", GetPath<EdoMod>("hats\\schrodinger")));
             //MissingNo from Pokemon. Duck Game style.
             Teams.core.teams.Add(new Team("MissingNo", GetPath<EdoMod>("hats\\missingno")));
+            //Nationwide's logo looks like they forgot to make one.
+            Teams.core.teams.Add(new Team("Nationwide", GetPath<EdoMod>("hats\\nationwide")));
 
 
             //Add dynamic hats!
