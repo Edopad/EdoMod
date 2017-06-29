@@ -76,6 +76,7 @@ namespace DuckGame.EdoMod
             //testers
             add(76561198135463290, tester); //Dawaste
             add(76561198052068017, tester); //Javito
+            add(76561198305275218, tester); //Castiel +Verified
 
             //determine FriendLevel of current steam user
 

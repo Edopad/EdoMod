@@ -91,6 +91,9 @@
     <Compile Include="src\core\FriendManager.cs" />
     <Compile Include="src\hats\turban\Turban.cs" />
     <Compile Include="src\hats\turban\TurbanData.cs" />
+    <Compile Include="src\weapons\StarDuckHandler.cs" />
+    <Compile Include="src\weapons\StarsGrenade.cs" />
+    <Compile Include="src\weapons\StarHandler.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

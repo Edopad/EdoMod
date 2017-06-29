@@ -46,8 +46,16 @@
             base.Update();
 
             if (equippedDuck == null || cquack == null) return;
-            cquack.Pitch = equippedDuck.quackPitch;
+
             if (!equippedDuck.IsQuacking()) return;
+
+            float pitch = equippedDuck.quackPitch;
+            if (pitch < 0f) pitch = 0f;
+            if (pitch > 1f) pitch = 1f;
+            cquack.Pitch = pitch;
+
+
+            
             if (tmr > 0)
             {
                 tmr -= 0.05f;

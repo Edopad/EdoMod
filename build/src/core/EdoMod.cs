@@ -11,7 +11,7 @@ using System.Xml.Linq;
 [assembly: AssemblyCompany("Edopad")]
 [assembly: AssemblyDescription("There's a hat for that!")]
 //"Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.3.8.0")]
+[assembly: AssemblyVersion("1.3.8.3")]
 //Added Groot Hat
 
 
@@ -128,7 +128,7 @@ namespace DuckGame.EdoMod
             FinnerHat.addHat();
 
             //Developer Hats
-            if ((ModSettings.isDeveloper || ModSettings.isFriend) && ModSettings.enableDevHats)
+            if (FriendManager.canuse(FriendLevel.Tester) && ModSettings.enableDevHats)
             {
                 //DENIED Hat
                 DenHat.addHat();

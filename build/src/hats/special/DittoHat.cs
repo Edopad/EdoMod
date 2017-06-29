@@ -44,9 +44,9 @@ namespace DuckGame.EdoMod
             foreach (Duck d in ducks)
             {
                 if (d == this.equippedDuck) continue;
-                if(d is DittoHat) continue;
+                if(!(d.hat is TeamHat)) continue;
                 float cdist = new Vec2(cd.position - d.position).length;
-                if (cdist == 1f) continue;
+                if (cdist <= 1f) continue;
                 if (cdist < mindist)
                 {
                     cd = d;
@@ -54,11 +54,13 @@ namespace DuckGame.EdoMod
                 }
             }
             //replace current hat
-            Hat h = new TeamHat(0f, 0f, this.team);
-            
-            Level.Add(h);
-            cd.Equip(h, false, true);
+            if (cd == this.equippedDuck) return;
 
+            TeamHat h = new TeamHat(0f, 0f, this.team);
+            if (cd.hat is TeamHat)
+                h = new TeamHat(this.x, this.y, (cd.hat as TeamHat).team);
+            EdoMain.instance.ReplaceHat(this, h);
+            Level.Remove(this);
         }
     }
 }
