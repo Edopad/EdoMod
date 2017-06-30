@@ -9,10 +9,13 @@ namespace DuckGame.EdoMod
     {
         private IDictionary<TeamHat, Cape> teamSpawnsDone;
 
+        public static EdoMain instance;
+
         public EdoMain()
         {
             teamSpawnsDone = new Dictionary<TeamHat, Cape>();
             AutoUpdatables.Add(this);
+            instance = this;
         }
 
         public void Update()
@@ -98,7 +101,7 @@ namespace DuckGame.EdoMod
             }
         }
 
-        private void ReplaceHat(TeamHat teamHat, TeamHat newHat)
+        public void ReplaceHat(TeamHat teamHat, TeamHat newHat)
         {
             if (teamHat == null
                 || teamSpawnsDone.ContainsKey(teamHat)

@@ -11,7 +11,7 @@ using System.Xml.Linq;
 [assembly: AssemblyCompany("Edopad")]
 [assembly: AssemblyDescription("There's a hat for that!")]
 //"Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.3.7.5")]
+[assembly: AssemblyVersion("1.3.8.3")]
 //Added Groot Hat
 
 
@@ -30,6 +30,7 @@ namespace DuckGame.EdoMod
                 System.Environment.Exit(0);
             */
             ModSettings.init();
+            FriendManager.init();
             base.OnPreInitialize();
         }
 
@@ -71,9 +72,17 @@ namespace DuckGame.EdoMod
             Teams.core.teams.Add(new Team("Schrodinger's Hat", GetPath<EdoMod>("hats\\schrodinger")));
             //MissingNo from Pokemon. Duck Game style.
             Teams.core.teams.Add(new Team("MissingNo", GetPath<EdoMod>("hats\\missingno")));
+            //Nationwide's logo looks like they forgot to make one.
+            Teams.core.teams.Add(new Team("Nationwide", GetPath<EdoMod>("hats\\nationwide")));
 
 
             //Add dynamic hats!
+
+            //turban test
+            if (ModSettings.isDeveloper)
+            {
+                TurbanData.add("Noisy", "hats\\airhorn", "SFX\\airhorn_long");
+            }
 
             //Heavy Rain Glitch ("Press X to Shaun!")
             ShaunHat.addHat();
@@ -121,7 +130,7 @@ namespace DuckGame.EdoMod
             FinnerHat.addHat();
 
             //Developer Hats
-            if ((ModSettings.isDeveloper || ModSettings.isFriend) && ModSettings.enableDevHats)
+            if (FriendManager.canuse(FriendLevel.Tester) && ModSettings.enableDevHats)
             {
                 //DENIED Hat
                 DenHat.addHat();

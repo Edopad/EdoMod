@@ -10,7 +10,7 @@ namespace DuckGame.EdoMod
         /*Mod Settings*/
         public static bool enableDevHats = true;
         public static bool quackworkaround = true;
-        public static bool enableCustomIntro = false;
+        public static bool enableCustomIntro = true;
 
         
         public static ulong[] devs = new ulong[] {
@@ -26,7 +26,9 @@ namespace DuckGame.EdoMod
 
 
         /*Working Variables*/
+        //Deprecated
         public static bool isDeveloper = false;
+        //Deprecated
         public static bool isFriend = false;
 
         public static void init()
