@@ -2,8 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\build",
+    "\\build\\obj",
+    "\\build\\obj\\x86",
+    "\\build\\obj\\x86\\Debug",
+    "\\build\\obj\\x86\\Release",
+    "\\build\\obj\\x86\\Release\\TempPE",
     "\\build\\src"
   ],
-  "SelectedNode": "\\build\\EdoMod.sln",
+  "SelectedNode": "\\build\\obj\\x86\\Release\\EdoMod.csproj.FileListAbsolute.txt",
   "PreviewInSolutionExplorer": false
 }
