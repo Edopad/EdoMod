@@ -1,0 +1,7 @@
+*.exe
+*.conf
+*.pdb
+*.sqlite
+*.suo
+*.cache
+*.dll
