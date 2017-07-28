@@ -11,7 +11,7 @@ using System.Xml.Linq;
 [assembly: AssemblyCompany("Edopad")]
 [assembly: AssemblyDescription("There's a hat for that!")]
 //"Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.3.8.3")]
+[assembly: AssemblyVersion("1.3.8.4")]
 //Added Groot Hat
 
 
@@ -74,6 +74,27 @@ namespace DuckGame.EdoMod
             Teams.core.teams.Add(new Team("MissingNo", GetPath<EdoMod>("hats\\missingno")));
             //Nationwide's logo looks like they forgot to make one.
             Teams.core.teams.Add(new Team("Nationwide", GetPath<EdoMod>("hats\\nationwide")));
+
+            //NEW to 1.3.8.4
+            //Sarah. "GET OFF THE ROAD BIKERS!"
+            Teams.core.teams.Add(new Team("Sarah", GetPath<EdoMod>("hats\\sarah")));
+            //Hammerhead shark. Self explanatory.
+            Teams.core.teams.Add(new Team("Hammerhead", GetPath<EdoMod>("hats\\hammerhead")));
+            //Flipping amazing.
+            Teams.core.teams.Add(new Team("Finger", GetPath<EdoMod>("hats\\middlefinger")));
+            //Macro- and Micro-wave AP Testing this spring!
+            Teams.core.teams.Add(new Team("Microwave", GetPath<EdoMod>("hats\\microwave")));
+            //Duck Game's sprite. Is this copyright infringement???
+            Teams.core.teams.Add(new Team("XBOX", GetPath<EdoMod>("hats\\x360")));
+            //Aku, from Samurai Jack -- Poorly made atm (1.3.8.4)
+            Teams.core.teams.Add(new Team("The Mask", GetPath<EdoMod>("hats\\aku")));
+            
+            //Hump Day! GEICO commercial
+            HumpHat.addHat();
+
+            //
+            Teams.core.teams.Add(new Team("TDuck", GetPath<EdoMod>("hats\\testduck")));
+
 
 
             //Add dynamic hats!

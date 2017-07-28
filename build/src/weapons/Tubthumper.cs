@@ -17,7 +17,7 @@ namespace DuckGame.EdoMod
             _editorName = "Tubthumper";
         }
 
-        protected override void Explosion()
+        protected void Explosion()
         {
             //gotta time this with music
             foreach (PhysicsObject physicsObject in Level.CheckCircleAll<PhysicsObject>(position, 96f))
