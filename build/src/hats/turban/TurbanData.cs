@@ -32,6 +32,8 @@ namespace DuckGame.EdoMod
 
             Teams.core.teams.Add(t);
             _texid = t.hat.texture.textureIndex;
+            //Add turban data to master list
+            turbans.Add(this);
         }
 
         //combination of ishat and gethat
@@ -54,7 +56,17 @@ namespace DuckGame.EdoMod
 
         private static List<TurbanData> turbans = new List<TurbanData>();
 
-        public static void add(TurbanData t)
+        public static Turban findHat(TeamHat th)
+        {
+            foreach (TurbanData td in turbans)
+            {
+                if (td.isHat(th)) return td.create(th.x, th.y, th.team);
+                    //return new Turban(th.x, th.y, th.team, td);
+            }
+            return null;
+        }
+
+        /*public static void add(TurbanData t)
         {
             turbans.Add(t);
         }
@@ -62,6 +74,6 @@ namespace DuckGame.EdoMod
         public static void add(string name, string texture, string quack, FriendLevel flvl = FriendLevel.Neutral)
         {
             add(new TurbanData(name, texture, quack, flvl));
-        }
+        }*/
     }
 }

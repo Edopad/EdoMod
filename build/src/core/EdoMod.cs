@@ -10,8 +10,9 @@ using System.Xml.Linq;
 [assembly: AssemblyTitle("Michael's Hat Pack")]
 [assembly: AssemblyCompany("Edopad")]
 [assembly: AssemblyDescription("There's a hat for that!")]
-//"Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.3.8.4")]
+//[1.0.0.0] "There's a hat for that!"
+//[0.0.0.0] "Duck Game but with memes instead of hats!"
+[assembly: AssemblyVersion("1.4.0.0")]
 //Added Groot Hat
 
 
@@ -88,21 +89,27 @@ namespace DuckGame.EdoMod
             Teams.core.teams.Add(new Team("XBOX", GetPath<EdoMod>("hats\\x360")));
             //Aku, from Samurai Jack -- Poorly made atm (1.3.8.4)
             Teams.core.teams.Add(new Team("The Mask", GetPath<EdoMod>("hats\\aku")));
-            
+
             //Hump Day! GEICO commercial
             HumpHat.addHat();
+            //Staples: "That was easy."
+            EasyHat.addHat();
+            //PewDiePie! Hat
+            //PewDiePieHat.addHat();
 
-            //
-            Teams.core.teams.Add(new Team("TDuck", GetPath<EdoMod>("hats\\testduck")));
-
+            //Test duck
+            //Teams.core.teams.Add(new Team("TDuck", GetPath<EdoMod>("hats\\testduck")));
+            
 
 
             //Add dynamic hats!
 
             //turban test
-            if (ModSettings.isDeveloper)
+            //if (ModSettings.isDeveloper)
             {
-                TurbanData.add("Noisy", "hats\\airhorn", "SFX\\airhorn_long");
+                //PewDiePie Hat!
+                new TurbanData("PewDiePie", "hats\\pewdiepie", GetPath<EdoMod>("SFX\\PewDiePie\\intro_1"));
+                new TurbanData("Test Turban", "hats\\testduck", GetPath<EdoMod>("SFX\\airhorn_long"));
             }
 
             //Heavy Rain Glitch ("Press X to Shaun!")

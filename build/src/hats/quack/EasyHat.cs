@@ -1,10 +1,10 @@
 ﻿namespace DuckGame.EdoMod
 {
-    class HumpHat : EdoHat
+    class EasyHat : EdoHat
     {
-        public static string hatName = "Humps";
+        public static string hatName = "Staples";
 
-        public static string hatPath = "hats\\humpday";
+        public static string hatPath = "hats\\easy";
 
         public static short texindex;
 
@@ -20,10 +20,10 @@
             return teamHat.sprite.texture.textureIndex == texindex && !(teamHat is EdoHat);
         }
 
-        public HumpHat(float x, float y, Team t)
+        public EasyHat(float x, float y, Team t)
             : base(x, y, t)
         {
-            setquack(Mod.GetPath<EdoMod>("SFX\\humpday"));
+            setquack(Mod.GetPath<EdoMod>("SFX\\thatwaseasy"));
         }
     }
 }

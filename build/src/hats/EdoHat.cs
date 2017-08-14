@@ -66,7 +66,7 @@ namespace DuckGame.EdoMod
 
         public override void Quack(float volume, float pitch)
         {
-            quackeff.Play(volume, pitch);
+            quackeff.Play(volume, -pitch);
         }
     }
 }

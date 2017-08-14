@@ -28,7 +28,7 @@
 
         public override void Quack(float volume, float pitch)
         {
-            if ((ModSettings.isDeveloper || ModSettings.isFriend) && pitch > 0.9) SFX.Play(Mod.GetPath<EdoMod>("SFX\\DENIED"), volume, 0f);
+            if ((ModSettings.isDeveloper || ModSettings.isFriend) && pitch > 0.9) SFX.Play(Mod.GetPath<EdoMod>("SFX\\DENIED"), volume, -1f);
             else base.Quack(volume, pitch);
         }
     }

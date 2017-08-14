@@ -29,7 +29,7 @@
 
         public override void Quack(float volume, float pitch)
         {
-            SFX.Play(Mod.GetPath<EdoMod>("SFX\\justdoit\\" + getquack()), volume, pitch);
+            SFX.Play(Mod.GetPath<EdoMod>("SFX\\justdoit\\" + getquack()), volume, -pitch);
             
         }
 

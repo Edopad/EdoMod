@@ -26,6 +26,12 @@
 
         }
 
+        public override void DoDraw()
+        {
+            this._angle += 1;
+            base.DoDraw();
+        }
+
         public override void Quack(float volume, float pitch)
         {
 

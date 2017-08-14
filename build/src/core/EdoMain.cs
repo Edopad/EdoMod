@@ -64,6 +64,10 @@ namespace DuckGame.EdoMod
                             ReplaceHat(teamHat, new JarJarHat(teamHat.x, teamHat.y, teamHat.team));
                         if (GrootHat.isHat(teamHat))
                             ReplaceHat(teamHat, new GrootHat(teamHat.x, teamHat.y, teamHat.team));
+                        if (HumpHat.isHat(teamHat))
+                            ReplaceHat(teamHat, new HumpHat(teamHat.x, teamHat.y, teamHat.team));
+                        if (PewDiePieHat.isHat(teamHat))
+                            ReplaceHat(teamHat, new PewDiePieHat(teamHat.x, teamHat.y, teamHat.team));
                         //Special Hats
                         if (NoHat.isHat(teamHat))
                             ReplaceHat(teamHat, new NoHat(teamHat.x, teamHat.y, teamHat.team));
@@ -77,6 +81,8 @@ namespace DuckGame.EdoMod
                             ReplaceHat(teamHat, new PiesHat(teamHat.x, teamHat.y, teamHat.team));
                         if (FinnerHat.isHat(teamHat))
                             ReplaceHat(teamHat, new FinnerHat(teamHat.x, teamHat.y, teamHat.team));
+                        if (EasyHat.isHat(teamHat))
+                            ReplaceHat(teamHat, new EasyHat(teamHat.x, teamHat.y, teamHat.team));
                         //Developer Hats
                         if (DenHat.isHat(teamHat))
                             ReplaceHat(teamHat, new DenHat(teamHat.x, teamHat.y, teamHat.team));
@@ -84,6 +90,10 @@ namespace DuckGame.EdoMod
                             ReplaceHat(teamHat, new MilkHat(teamHat.x, teamHat.y, teamHat.team));
                         if (UpsideHat.isHat(teamHat))
                             ReplaceHat(teamHat, new UpsideHat(teamHat.x, teamHat.y, teamHat.team));
+
+
+                        Turban turban = TurbanData.findHat(teamHat);
+                        if (turban != null) ReplaceHat(teamHat, turban);
                     }
                 }
                 List<Thing> removedHats = teamSpawnsDone.Keys.Except(Level.current.things[typeof(TeamHat)]).ToList();
