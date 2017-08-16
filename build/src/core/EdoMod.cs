@@ -13,8 +13,6 @@ using System.Xml.Linq;
 //[1.0.0.0] "There's a hat for that!"
 //[0.0.0.0] "Duck Game but with memes instead of hats!"
 [assembly: AssemblyVersion("1.4.0.0")]
-//Added Groot Hat
-
 
 namespace DuckGame.EdoMod
 {
@@ -88,62 +86,92 @@ namespace DuckGame.EdoMod
             //Duck Game's sprite. Is this copyright infringement???
             Teams.core.teams.Add(new Team("XBOX", GetPath<EdoMod>("hats\\x360")));
             //Aku, from Samurai Jack -- Poorly made atm (1.3.8.4)
-            Teams.core.teams.Add(new Team("The Mask", GetPath<EdoMod>("hats\\aku")));
+            Teams.core.teams.Add(new Team("Aku", GetPath<EdoMod>("hats\\aku")));
+
+            
+
+            //TODO Implement another way to NetQuack (extended version) where it is given a percentage random chance for different SFX
 
             //Hump Day! GEICO commercial
-            HumpHat.addHat();
-            //Staples: "That was easy."
-            EasyHat.addHat();
-            //PewDiePie! Hat
-            //PewDiePieHat.addHat();
+            new TurbanData("Humps", "hats\\humpday", GetPath<EdoMod>("SFX\\humpday"));
+            //PewDiePie Hat!
+            new TurbanData("PewDiePie", "hats\\pewdiepie", GetPath<EdoMod>("SFX\\PewDiePie\\intro_1"));
+            //Staples Button: "That was easy."
+            new TurbanData("Staples", "hats\\easy", GetPath<EdoMod>("SFX\\thatwaseasy"));
+            //The Turban Test Duck Hat
+            new TurbanData("Test Turban", "hats\\testduck", GetPath<EdoMod>("SFX\\airhorn_long"));
+            //You've got Mail! AOL sound effect
+            new TurbanData("Mail", "hats\\mailbox", GetPath<EdoMod>("SFX\\youve_got_mail"));
 
-            //Test duck
-            //Teams.core.teams.Add(new Team("TDuck", GetPath<EdoMod>("hats\\testduck")));
-            
+            //Migratory Hats
+
+            //Woody the Woodpecker laugh
+            new TurbanData("Woody", "hats\\woody", GetPath<EdoMod>("SFX\\hahaha"));
+            //noot!
+            new TurbanData("Noot", "hats\\noot", GetPath<EdoMod>("SFX\\noot"));
+            //airhorn. pretty self-explanitory.
+            new TurbanData("Noisy", "hats\\airhorn", GetPath<EdoMod>("SFX\\airhorn_long"));
+            //all star but everything is a shed
+            new TurbanData("Smash Mouth", "hats\\shed", GetPath<EdoMod>("SFX\\shed"));
+            //Hitmarker
+            new TurbanData("Noscope", "hats\\hitmark", GetPath<EdoMod>("SFX\\hitmarker"));
+            //"Smoke Weed Everyday"
+            new TurbanData("Weed", "hats\\weed", GetPath<EdoMod>("SFX\\smokeweedeveryday"));
+            //Just a firetruck.
+            new TurbanData("Fire", "hats\\firetruck", GetPath<EdoMod>("SFX\\firehorn_short"));
+            //Finding Nemo: "Mine!" Seagulls
+            new TurbanData("Gulls", "hats\\gull", GetPath<EdoMod>("SFX\\mine"));
+            //Jar Jar Binks, "Oh no!" -Star Wars
+            new TurbanData("Binks", "hats\\Jar-Jar-Binks-icon", GetPath<EdoMod>("SFX\\ohno"));
+            //Guardians of the Galaxy : Groot
+            new TurbanData("Groot", "hats\\groot", GetPath<EdoMod>("SFX\\groot\\groot-1"));
 
 
-            //Add dynamic hats!
+            string[] quacks = {
+                Mod.GetPath<EdoMod>("SFX\\shaun1"),
+                Mod.GetPath<EdoMod>("SFX\\shaun2"),
+                Mod.GetPath<EdoMod>("SFX\\shaun3")
+            };
+            new TurbanData("Shaun", "hats\\shaun", new[] {
+                GetPath<EdoMod>("SFX\\shaun1"),
+                GetPath<EdoMod>("SFX\\shaun2"),
+                GetPath<EdoMod>("SFX\\shaun3")
+            });
 
-            //turban test
-            //if (ModSettings.isDeveloper)
-            {
-                //PewDiePie Hat!
-                new TurbanData("PewDiePie", "hats\\pewdiepie", GetPath<EdoMod>("SFX\\PewDiePie\\intro_1"));
-                new TurbanData("Test Turban", "hats\\testduck", GetPath<EdoMod>("SFX\\airhorn_long"));
-            }
+            //string path = GetPath<EdoMod>("");
+            new TurbanData("Shia", "hats\\LaBeouf",
+            new[] {
+                GetPath<EdoMod>("SFX\\justdoit\\yesyoucan"),
+                GetPath<EdoMod>("SFX\\justdoit\\dontletyourdreamsbedreams"),
+                GetPath<EdoMod>("SFX\\justdoit\\justdoit"),
+                GetPath<EdoMod>("SFX\\justdoit\\justdoit_2"),
+                GetPath<EdoMod>("SFX\\justdoit\\no"),
+                GetPath<EdoMod>("SFX\\justdoit\\nothingisimpossible"),
+                GetPath<EdoMod>("SFX\\justdoit\\stopgivingup"),
+                GetPath<EdoMod>("SFX\\justdoit\\doit")
+            });
+
+            new TurbanData("JG Wentworth", "hats\\Wentworth", new[] {
+                GetPath<EdoMod>("SFX\\jgwentworth\\immainin_1"),
+                GetPath<EdoMod>("SFX\\jgwentworth\\immainin_2"),
+                GetPath<EdoMod>("SFX\\jgwentworth\\immainin_3"),
+                GetPath<EdoMod>("SFX\\jgwentworth\\immainin_4"),
+                GetPath<EdoMod>("SFX\\jgwentworth\\immainin_5")
+            });
+
+            //Custom quacks?
 
             //Heavy Rain Glitch ("Press X to Shaun!")
-            ShaunHat.addHat();
-            //ShaunMPHat.addHat();
-            //Woody the Woodpecker laugh
-            HahaHat.addHat();
-            //noot!
-            NootHat.addHat();
-            //airhorn. pretty self-explanitory.
-            AirHat.addHat();
-            //all star but everything is a shed
-            ShedHat.addHat();
-            //Hitmarker
-            HitmarkHat.addHat();
-            //"Smoke Weed Everyday"
-            WeedHat.addHat();
-            
+            //ShaunHat.addHat();
             //[[Censored]]
             CensoredHat.addHat();
-            //Just a firetruck.
-            FiretruckHat.addHat();
-            //Finding Nemo: "Mine!" Seagulls
-            GullHat.addHat();
-            //Marvelous Breadfish
+            //Have you ever seen the marvelous breadfish?
             BreadfishHat.addHat();
             //Shia's inspirational speech
-            DoItHat.addHat();
-            //Jar Jar Binks, "Oh no!" -Star Wars
-            JarJarHat.addHat();
-            //Guardians of the Galaxy : Groot
-            GrootHat.addHat();
+            //DoItHat.addHat();
 
             //Special Hats! These do things!
+
             //NO!
             NoHat.addHat();
             //Bomb!

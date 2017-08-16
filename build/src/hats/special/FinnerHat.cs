@@ -28,8 +28,36 @@
 
         public override void DoDraw()
         {
-            this._angle += 1;
-            base.DoDraw();
+            //this._angle += 1;
+            this.angle += (MathHelper.Pi * 2 / 60);
+            //this.sprite.angle += 1;
+            //this.sprite._angle += 1;
+           // base.DoDraw();
+        }
+
+        private float rot = 0;
+
+        public override void Draw()
+        {
+            //this.angle += 1;
+            this.angle += (MathHelper.Pi * 2 / 60);
+            this.PositionOnOwner();
+            if (this._graphic != null)
+            {
+                base.graphic.flipH = (this.offDir <= 0);
+                this._graphic.position = this.position;
+                this._graphic.alpha = base.alpha;
+                this._graphic.angle = this.angle + (rot += (MathHelper.Pi * 2 / 60));
+                this._graphic.depth = base.depth;
+                this._graphic.scale = base.scale;
+                this._graphic.center = this.center;
+                this._graphic.Draw();
+            }
+            //this._angle += 1;
+            
+            //this.sprite.angle += 1;
+            //this.sprite._angle += 1;
+            //base.Draw();
         }
 
         public override void Quack(float volume, float pitch)

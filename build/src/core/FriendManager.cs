@@ -68,6 +68,7 @@ namespace DuckGame.EdoMod
             //"Devs"
             add(76561198075158393, dev);    //Edopad
             add(76561198045895284, dev);    //Deadalus
+            add(76561198402733512, dev);    //Tanzee
             //Supadroogs
             add(76561198170721967, super);  //Funkasaurusrex
             add(76561198242940134, super);  //AWOLKat

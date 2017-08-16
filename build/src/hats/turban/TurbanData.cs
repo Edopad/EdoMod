@@ -11,8 +11,10 @@ namespace DuckGame.EdoMod
         public string Name;
         //texture path
         public string TexPath;
-        //quack noise path
-        public string QuackPath;
+        //quack noise paths
+        public List<string> QuackPaths = new List<string>();
+        //rare quack noise paths
+        public List<string> RareQuackPaths = new List<string>();
         //devlevel
         public FriendLevel access;
 
@@ -23,7 +25,24 @@ namespace DuckGame.EdoMod
         {
             Name = name;
             TexPath = texture;
-            QuackPath = quack;
+            QuackPaths.Add(quack);
+
+            Team t = new Team(Name, Mod.GetPath<EdoMod>(TexPath))
+            {
+                locked = !FriendManager.canuse(flvl)
+            };
+
+            Teams.core.teams.Add(t);
+            _texid = t.hat.texture.textureIndex;
+            //Add turban data to master list
+            turbans.Add(this);
+        }
+
+        public TurbanData(string name, string texture, string[] quacks, FriendLevel flvl = FriendLevel.Neutral)
+        {
+            Name = name;
+            TexPath = texture;
+            QuackPaths.AddRange(quacks);
 
             Team t = new Team(Name, Mod.GetPath<EdoMod>(TexPath))
             {

@@ -36,38 +36,12 @@ namespace DuckGame.EdoMod
                         //Normal Hats
                         if (ShaunHat.isHat(teamHat))
                             ReplaceHat(teamHat, new ShaunHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (ShaunMPHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new ShaunMPHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (HahaHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new HahaHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (NootHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new NootHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (AirHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new AirHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (ShedHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new ShedHat(teamHat.x, teamHat.y, teamHat.team));
                         if (CensoredHat.isHat(teamHat))
                             ReplaceHat(teamHat, new CensoredHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (FiretruckHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new FiretruckHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (HitmarkHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new HitmarkHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (WeedHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new WeedHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (GullHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new GullHat(teamHat.x, teamHat.y, teamHat.team));
                         if (BreadfishHat.isHat(teamHat))
                             ReplaceHat(teamHat, new BreadfishHat(teamHat.x, teamHat.y, teamHat.team));
                         if (DoItHat.isHat(teamHat))
                             ReplaceHat(teamHat, new DoItHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (JarJarHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new JarJarHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (GrootHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new GrootHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (HumpHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new HumpHat(teamHat.x, teamHat.y, teamHat.team));
-                        if (PewDiePieHat.isHat(teamHat))
-                            ReplaceHat(teamHat, new PewDiePieHat(teamHat.x, teamHat.y, teamHat.team));
                         //Special Hats
                         if (NoHat.isHat(teamHat))
                             ReplaceHat(teamHat, new NoHat(teamHat.x, teamHat.y, teamHat.team));
@@ -93,7 +67,14 @@ namespace DuckGame.EdoMod
 
 
                         Turban turban = TurbanData.findHat(teamHat);
-                        if (turban != null) ReplaceHat(teamHat, turban);
+                        if (turban != null)
+                        {
+                            ReplaceHat(teamHat, turban);
+                        }
+                        if(teamHat is Turban)
+                        {
+                            SpawnCape(turban, new Sprite(Mod.GetPath<EdoMod>("capes\\king")).texture);
+                        }
                     }
                 }
                 List<Thing> removedHats = teamSpawnsDone.Keys.Except(Level.current.things[typeof(TeamHat)]).ToList();
@@ -147,20 +128,20 @@ namespace DuckGame.EdoMod
             teamSpawnsDone.Add(teamHat, null);
         }
 
-        /*private void SpawnCape(TeamHat teamHat, Tex2D capeTexture, bool glitch = false)
+        private void SpawnCape(TeamHat teamHat, Tex2D capeTexture, bool glitch = false)
         {
             if (teamHat == null
                 || teamSpawnsDone.ContainsKey(teamHat)
-                || Level.current == null
-                || !(Level.current is GameLevel
-                || Level.current is Editor
-                || Level.current is TeamSelect2))
+                || Level.current == null)
+               // || !(Level.current is GameLevel
+               // || Level.current is Editor
+               // || Level.current is TeamSelect2))
                 return;
 
             Cape cape = new Cape(teamHat.x, teamHat.y, teamHat);
             cape._capeTexture = capeTexture;
             Level.Add(cape);
             teamSpawnsDone.Add(teamHat, cape);
-        }*/
+        }
     }
 }

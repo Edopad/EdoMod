@@ -9,7 +9,7 @@ namespace DuckGame.EdoMod
     {
         public Turban(float x, float y, Team t, TurbanData td) : base(x, y, t)
         {
-            setquack(td.QuackPath);
+            setquack(td.QuackPaths, td.RareQuackPaths);
         }
     }
 }
