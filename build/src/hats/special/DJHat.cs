@@ -1,10 +1,12 @@
-﻿namespace DuckGame.EdoMod
-{
-    class EasyHat : EdoHat
-    {
-        public static string hatName = "Staples";
+﻿using System;
 
-        public static string hatPath = "hats\\easy";
+namespace DuckGame.EdoMod
+{
+    class DJHat : EdoHat
+    {
+        public static string hatName = "DJ";
+
+        public static string hatPath = "hats\\dj";
 
         public static short texindex;
 
@@ -20,10 +22,16 @@
             return teamHat.sprite.texture.textureIndex == texindex && !(teamHat is EdoHat);
         }
 
-        public EasyHat(float x, float y, Team t)
+        public DJHat(float x, float y, Team t)
             : base(x, y, t)
         {
-            setquack(Mod.GetPath<EdoMod>("SFX\\thatwaseasy"));
+
+        }
+
+        public override void Quack(float volume, float pitch)
+        {
+            SFX.Play(Mod.GetPath<EdoMod>("SFX\\djscratch"), volume, pitch);
+            Music.SwitchSongs();
         }
     }
 }

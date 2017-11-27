@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DuckGame.EdoMod.src.core;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,10 +10,11 @@ using System.Xml.Linq;
 
 [assembly: AssemblyTitle("Michael's Hat Pack")]
 [assembly: AssemblyCompany("Edopad")]
-[assembly: AssemblyDescription("There's a hat for that!")]
+[assembly: AssemblyDescription("I put spongebob music over Duck Game!")]
+//[1.5.0.0] "I put spongebob music over Duck Game!"
 //[1.0.0.0] "There's a hat for that!"
 //[0.0.0.0] "Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.4.0.0")]
+[assembly: AssemblyVersion("1.5.0.1")]
 
 namespace DuckGame.EdoMod
 {
@@ -30,6 +32,15 @@ namespace DuckGame.EdoMod
             */
             ModSettings.init();
             FriendManager.init();
+
+            //UNSAFE! HA! - allows quacking in base TeamHat class to support right trigger for low pitch
+            if(ModSettings.enableDangerousInjections)
+            {
+                MethodInfo orig = typeof(Duck).GetMethod("UpdateQuack", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                MethodInfo newer = typeof(EdoDuck).GetMethod("UpdateQuack2", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                DynamicMojo.SwapMethodBodies(newer, orig);
+            }
+
             base.OnPreInitialize();
         }
 
@@ -99,7 +110,8 @@ namespace DuckGame.EdoMod
             //Staples Button: "That was easy."
             new TurbanData("Staples", "hats\\easy", GetPath<EdoMod>("SFX\\thatwaseasy"));
             //The Turban Test Duck Hat
-            new TurbanData("Test Turban", "hats\\testduck", GetPath<EdoMod>("SFX\\airhorn_long"));
+            if(ModSettings.enableDevHats)
+                new TurbanData("Test Turban", "hats\\testduck", GetPath<EdoMod>("SFX\\airhorn_long"), FriendLevel.Dev);
             //You've got Mail! AOL sound effect
             new TurbanData("Mail", "hats\\mailbox", GetPath<EdoMod>("SFX\\youve_got_mail"));
 
@@ -125,8 +137,10 @@ namespace DuckGame.EdoMod
             new TurbanData("Binks", "hats\\Jar-Jar-Binks-icon", GetPath<EdoMod>("SFX\\ohno"));
             //Guardians of the Galaxy : Groot
             new TurbanData("Groot", "hats\\groot", GetPath<EdoMod>("SFX\\groot\\groot-1"));
+            //MGS Alert
+            new TurbanData("MGS", "hats\\mgs", GetPath<EdoMod>("SFX\\mgs"));
 
-
+            //Heavy Rain Glitch ("Press X to Shaun!")
             string[] quacks = {
                 Mod.GetPath<EdoMod>("SFX\\shaun1"),
                 Mod.GetPath<EdoMod>("SFX\\shaun2"),
@@ -138,7 +152,7 @@ namespace DuckGame.EdoMod
                 GetPath<EdoMod>("SFX\\shaun3")
             });
 
-            //string path = GetPath<EdoMod>("");
+            //Shia LaBeouf's inspirational speech
             new TurbanData("Shia", "hats\\LaBeouf",
             new[] {
                 GetPath<EdoMod>("SFX\\justdoit\\yesyoucan"),
@@ -151,7 +165,7 @@ namespace DuckGame.EdoMod
                 GetPath<EdoMod>("SFX\\justdoit\\doit")
             });
 
-            new TurbanData("JG Wentworth", "hats\\Wentworth", new[] {
+            new TurbanData("JG Wentworth", "hats\\money", new[] {
                 GetPath<EdoMod>("SFX\\jgwentworth\\immainin_1"),
                 GetPath<EdoMod>("SFX\\jgwentworth\\immainin_2"),
                 GetPath<EdoMod>("SFX\\jgwentworth\\immainin_3"),
@@ -159,20 +173,13 @@ namespace DuckGame.EdoMod
                 GetPath<EdoMod>("SFX\\jgwentworth\\immainin_5")
             });
 
-            //Custom quacks?
+            //Special Hats! These do things!
 
-            //Heavy Rain Glitch ("Press X to Shaun!")
-            //ShaunHat.addHat();
             //[[Censored]]
             CensoredHat.addHat();
             //Have you ever seen the marvelous breadfish?
             BreadfishHat.addHat();
-            //Shia's inspirational speech
-            //DoItHat.addHat();
-
-            //Special Hats! These do things!
-
-            //NO!
+            //NO! (mutes other hats via brute force)
             NoHat.addHat();
             //Bomb!
             BombHat.addHat();
@@ -182,17 +189,18 @@ namespace DuckGame.EdoMod
             DittoHat.addHat();
             //asdf movie: Pie Flavor!
             PiesHat.addHat();
-            //Fidget Spinners
-            FinnerHat.addHat();
+            
 
             //Developer Hats
             if (FriendManager.canuse(FriendLevel.Tester) && ModSettings.enableDevHats)
             {
+                //Fidget Spinners
+                FinnerHat.addHat();
                 //DENIED Hat
                 DenHat.addHat();
                 //Milk Hat
                 MilkHat.addHat();
-
+                //Supposed to invert (vertically) the appearance of the duck.
                 UpsideHat.addHat();
             }
 

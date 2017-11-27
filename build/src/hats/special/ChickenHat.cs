@@ -25,24 +25,27 @@ namespace DuckGame.EdoMod
         public ChickenHat(float x, float y, Team t)
             : base(x, y, t)
         {
-
+            setquack(Mod.GetPath<EdoMod>("SFX\\cluck"));
         }
 
         public override void Quack(float volume, float pitch)
         {
-            {
-                HatEgg magnumShell = new HatEgg(this.x, this.y + Rando.Float(-2, 2));
-
-                float ang = Rando.Float(0f, 2f * (float)Math.PI);
-                float speed = 5f * pitch;
-
-                magnumShell.vSpeed = -speed * (float)Math.Sin(ang);
-                magnumShell.hSpeed = speed * (float)Math.Cos(ang);
-
-                magnumShell.depth = depth - 1;
-                Level.Add((Thing)magnumShell);
-            }
+            DoQuack(pitch);
             SFX.Play(Mod.GetPath<EdoMod>("SFX\\cluck"), volume, pitch);
+        }
+
+        public override void DoQuack(float pitch)
+        {            
+            HatEgg magnumShell = new HatEgg(this.x, this.y + Rando.Float(-2, 2));
+
+            float ang = Rando.Float(0f, 2f * (float)Math.PI);
+            float speed = 5f * pitch;
+
+            magnumShell.vSpeed = -speed * (float)Math.Sin(ang);
+            magnumShell.hSpeed = speed * (float)Math.Cos(ang);
+
+            magnumShell.depth = depth - 1;
+            Level.Add((Thing)magnumShell);
         }
 
         public override void Update()

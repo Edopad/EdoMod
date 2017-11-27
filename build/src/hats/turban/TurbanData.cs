@@ -26,6 +26,7 @@ namespace DuckGame.EdoMod
             Name = name;
             TexPath = texture;
             QuackPaths.Add(quack);
+            access = flvl;
 
             Team t = new Team(Name, Mod.GetPath<EdoMod>(TexPath))
             {
@@ -43,6 +44,7 @@ namespace DuckGame.EdoMod
             Name = name;
             TexPath = texture;
             QuackPaths.AddRange(quacks);
+            access = flvl;
 
             Team t = new Team(Name, Mod.GetPath<EdoMod>(TexPath))
             {
@@ -58,18 +60,19 @@ namespace DuckGame.EdoMod
         //combination of ishat and gethat
         public Turban getHat(TeamHat th, float x, float y, Team t)
         {
-            return isHat(th) ? create(x, y, t) : null;
+            return isHat(th) ? new Turban(x, y, t) : null;
         }
 
         public bool isHat(TeamHat th)
         {
             return th.sprite.texture.textureIndex == _texid && !(th is EdoHat);
         }
+
         
-        public Turban create(float x, float y, Team t)
+        /*public Turban create(float x, float y, Team t)
         {
-            return new Turban(x,y,t,this);
-        }
+            return new Turban(x,y,t);
+        }*/
 
         //static portion of class
 
@@ -77,13 +80,28 @@ namespace DuckGame.EdoMod
 
         public static Turban findHat(TeamHat th)
         {
+            TurbanData td = find(th.sprite.texture.textureIndex);
+            if (td != null) return new Turban(th.x, th.y, th.team);
+            return null;
+            /*
             foreach (TurbanData td in turbans)
             {
-                if (td.isHat(th)) return td.create(th.x, th.y, th.team);
+                if (td.isHat(th)) return new Turban(th.x, th.y, th.team);
                     //return new Turban(th.x, th.y, th.team, td);
+            }
+            return null;*/
+        }
+
+        public static TurbanData find(short texid)
+        {
+            foreach (TurbanData td in turbans)
+            {
+                if (td._texid == texid) return td;
             }
             return null;
         }
+
+
 
         /*public static void add(TurbanData t)
         {

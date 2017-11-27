@@ -20,6 +20,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>..\</OutputPath>
@@ -29,6 +30,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DuckGame">
@@ -57,35 +59,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\core\DynamicMojo.cs" />
+    <Compile Include="src\core\EdoDuck.cs" />
     <Compile Include="src\core\EdoLogo.cs" />
     <Compile Include="src\hats\EdoHat.cs" />
     <Compile Include="src\core\ModSettings.cs" />
-    <Compile Include="src\hats\obsolete\AirHat.cs" />
     <Compile Include="src\hats\special\BreadfishHat.cs" />
     <Compile Include="src\hats\special\CensoredHat.cs" />
     <Compile Include="src\hats\dev\DenHat.cs" />
-    <Compile Include="src\hats\obsolete\EasyHat.cs" />
-    <Compile Include="src\hats\obsolete\FiretruckHat.cs" />
-    <Compile Include="src\hats\obsolete\GrootHat.cs" />
-    <Compile Include="src\hats\obsolete\GullHat.cs" />
-    <Compile Include="src\hats\obsolete\HahaHat.cs" />
-    <Compile Include="src\hats\obsolete\HitmarkHat.cs" />
-    <Compile Include="src\hats\obsolete\HumpHat.cs" />
-    <Compile Include="src\hats\obsolete\JarJarHat.cs" />
-    <Compile Include="src\hats\obsolete\NootHat.cs" />
-    <Compile Include="src\hats\obsolete\PewDiePieHat.cs" />
-    <Compile Include="src\hats\randomquack\ShaunHat.cs" />
     <Compile Include="src\core\EdoMain.cs" />
     <Compile Include="src\core\EdoExtensions.cs" />
     <Compile Include="src\core\EdoMod.cs" />
-    <Compile Include="src\hats\quack\ShaunMPHat.cs" />
-    <Compile Include="src\hats\randomquack\DoItHat.cs" />
-    <Compile Include="src\hats\obsolete\ShedHat.cs" />
-    <Compile Include="src\hats\obsolete\WeedHat.cs" />
     <Compile Include="src\hats\special\BombHat.cs" />
     <Compile Include="src\hats\special\ChickenHat.cs" />
     <Compile Include="src\hats\dev\MilkHat.cs" />
     <Compile Include="src\hats\special\DittoHat.cs" />
+    <Compile Include="src\hats\special\DJHat.cs" />
     <Compile Include="src\hats\special\FinnerHat.cs" />
     <Compile Include="src\hats\special\NoHat.cs" />
     <Compile Include="src\hats\special\PiesHat.cs" />
@@ -94,13 +83,15 @@
     <Compile Include="src\core\FriendManager.cs" />
     <Compile Include="src\hats\turban\Turban.cs" />
     <Compile Include="src\hats\turban\TurbanData.cs" />
-    <Compile Include="src\libraries\NetWoof.cs" />
+    <Compile Include="src\weapons\ToBeContinued.cs" />
     <Compile Include="src\weapons\Tubthumper.cs" />
     <Compile Include="src\weapons\StarDuckHandler.cs" />
     <Compile Include="src\weapons\StarsGrenade.cs" />
     <Compile Include="src\weapons\StarHandler.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\libraries\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

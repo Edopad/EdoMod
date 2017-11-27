@@ -6,4 +6,12 @@
   <PropertyGroup>
     <ReferencePath>D:\MySteamLibrary\steamapps\common\Duck Game\</ReferencePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files %28x86%29\Steam\steamapps\common\Duck Game\DuckGame.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files %28x86%29\Steam\steamapps\common\Duck Game\DuckGame.exe</StartProgram>
+  </PropertyGroup>
 </Project>

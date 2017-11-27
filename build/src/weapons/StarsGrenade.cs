@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DuckGame.EdoMod
+﻿namespace DuckGame.EdoMod
 {
-    [EditorGroup("EdoMod|misc")]
+    //[EditorGroup("EdoMod|misc")]
     public class StarsGrenade : Grenade
     {
         public StateBinding _realTimerStateBinding = new StateBinding("_realTimer");

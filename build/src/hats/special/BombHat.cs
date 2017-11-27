@@ -52,10 +52,14 @@ namespace DuckGame.EdoMod
                     magnumShell.depth = depth - 1;
                     Level.Add((Thing)magnumShell);
                 }
+                base.Quack(volume, pitch);
                 Level.Remove(this);
 
+            } else
+            {
+                base.Quack(volume, pitch);
             }
-            base.Quack(volume, pitch);
+            
         }
 
         public override void Terminate()

@@ -28,6 +28,22 @@ namespace DuckGame.EdoMod
 
         private NetSoundEffect quackeff = new NetSoundEffect("quack");
 
+        public virtual void DoQuack(float pitch)
+        {
+            SFX.Play("SFX\\airhorn_long");
+            return;
+        }
+
+        private class QuackCallback
+        {
+            public void Invoke(EdoHat eh, float pitch)
+            {
+                eh.DoQuack(pitch);
+            }
+        }
+
+        private static QuackCallback _QuackCallback = new QuackCallback();
+
         public override void Update()
         {
             if (this.equippedDuck != null) this.equippedDuck._netQuack = quackeff;
@@ -39,7 +55,12 @@ namespace DuckGame.EdoMod
                 if (equippedDuck != null)
                 {
                     bool cquack = equippedDuck.IsQuacking();
-                    if (cquack && !pquack && Network.isActive) Quack(1f, equippedDuck.quackPitch);
+                    if (cquack && !pquack && Network.isActive)
+                    {
+                        this.xscale *= 2;
+                    }
+                        //_QuackCallback.Invoke(this, equippedDuck.quackPitch);
+                        //DoQuack(equippedDuck.quackPitch); //Quack(1f, equippedDuck.quackPitch);
                     pquack = cquack;
                 }
             }
@@ -66,7 +87,9 @@ namespace DuckGame.EdoMod
 
         public override void Quack(float volume, float pitch)
         {
-            quackeff.Play(volume, -pitch);
+            //if (equippedDuck.inputProfile.rightTrigger != 0)
+            //    pitch = -equippedDuck.inputProfile.rightTrigger;
+            quackeff.Play(volume, pitch);
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DuckGame.EdoMod
+﻿/*namespace DuckGame.EdoMod
 {
     [EditorGroup("EdoMod|misc")]
     public class Tubthumper : Grenade
@@ -65,3 +62,4 @@ namespace DuckGame.EdoMod
         }
     }
 }
+*/
