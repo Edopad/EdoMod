@@ -14,7 +14,7 @@ using System.Xml.Linq;
 //[1.5.0.0] "I put spongebob music over Duck Game!"
 //[1.0.0.0] "There's a hat for that!"
 //[0.0.0.0] "Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.5.0.1")]
+[assembly: AssemblyVersion("1.5.3.2")]
 
 namespace DuckGame.EdoMod
 {
@@ -22,6 +22,21 @@ namespace DuckGame.EdoMod
     {
         internal static EdoMain Main { get; private set; }
         internal static string AssemblyName { get; private set; }
+        public EventHandler Load { get; private set; }
+
+        private static void DoDangerousInjections()
+        {
+            {
+                MethodInfo orig = typeof(EdoDuck).GetMethod("_UpdateMove", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                MethodInfo newer = typeof(Duck).GetMethod("UpdateMove", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                DynamicMojo.SwapMethodBodies(newer, orig);
+            }
+            {
+                MethodInfo orig = typeof(Duck).GetMethod("UpdateMove", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                MethodInfo newer = typeof(EdoDuck).GetMethod("UpdateMove", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                DynamicMojo.SwapMethodBodies(newer, orig);
+            }
+        }
 
         // This function is run before all mods are finished loading.
         protected override void OnPreInitialize()
@@ -37,11 +52,17 @@ namespace DuckGame.EdoMod
             if(ModSettings.enableDangerousInjections)
             {
                 MethodInfo orig = typeof(Duck).GetMethod("UpdateQuack", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
-                MethodInfo newer = typeof(EdoDuck).GetMethod("UpdateQuack2", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                MethodInfo newer = typeof(EdoDuck).GetMethod("UpdateQuack", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
                 DynamicMojo.SwapMethodBodies(newer, orig);
             }
+            if (ModSettings.enableDangerousInjections) DoDangerousInjections();
 
             base.OnPreInitialize();
+        }
+
+        void HandleCustomEvent(object sender)
+        {
+            // Do something useful here.  
         }
 
         // This function is run after all mods are loaded.
@@ -98,9 +119,16 @@ namespace DuckGame.EdoMod
             Teams.core.teams.Add(new Team("XBOX", GetPath<EdoMod>("hats\\x360")));
             //Aku, from Samurai Jack -- Poorly made atm (1.3.8.4)
             Teams.core.teams.Add(new Team("Aku", GetPath<EdoMod>("hats\\aku")));
-
             
+            Teams.core.teams.Add(new Team("Spaze Soot", GetPath<EdoMod>("hats\\spacebubble")));
+            Teams.core.teams.Add(new Team("Gumballs", GetPath<EdoMod>("hats\\gumballduck")));
+            Teams.core.teams.Add(new Team("Mutants", GetPath<EdoMod>("hats\\duomutant")));
+            Teams.core.teams.Add(new Team("Sheep", GetPath<EdoMod>("hats\\sheep")));
+            //Teams.core.teams.Add(new Team(, GetPath<EdoMod>()));
+            new TurbanData("Rainbows", "hats\\rainbows", GetPath<EdoMod>("SFX\\RAINBOWS_long"));
+            Teams.core.teams.Add(new Team("Google", GetPath<EdoMod>("hats\\google")));
 
+            new TurbanData("Bigmouth", "hats\\unu1", GetPath<EdoMod>("SFX\\waa"));
             //TODO Implement another way to NetQuack (extended version) where it is given a percentage random chance for different SFX
 
             //Hump Day! GEICO commercial
@@ -141,11 +169,11 @@ namespace DuckGame.EdoMod
             new TurbanData("MGS", "hats\\mgs", GetPath<EdoMod>("SFX\\mgs"));
 
             //Heavy Rain Glitch ("Press X to Shaun!")
-            string[] quacks = {
+            /*string[] quacks = {
                 Mod.GetPath<EdoMod>("SFX\\shaun1"),
                 Mod.GetPath<EdoMod>("SFX\\shaun2"),
                 Mod.GetPath<EdoMod>("SFX\\shaun3")
-            };
+            };*/
             new TurbanData("Shaun", "hats\\shaun", new[] {
                 GetPath<EdoMod>("SFX\\shaun1"),
                 GetPath<EdoMod>("SFX\\shaun2"),
@@ -189,7 +217,8 @@ namespace DuckGame.EdoMod
             DittoHat.addHat();
             //asdf movie: Pie Flavor!
             PiesHat.addHat();
-            
+            //DJ Hat - changes music paylist!
+            DJHat.addHat();
 
             //Developer Hats
             if (FriendManager.canuse(FriendLevel.Tester) && ModSettings.enableDevHats)

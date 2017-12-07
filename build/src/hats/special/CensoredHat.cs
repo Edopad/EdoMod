@@ -2,43 +2,6 @@
 {
     class CensoredHat : EdoHat
     {
-
-        private Sound playing = null;
-
-        private void killquack()
-        {
-            if (playing != null)
-            {
-                playing.Kill();
-                playing = null;
-            }
-        }
-
-        public override void Update()
-        {
-            base.Update();
-            if (equippedDuck == null) {
-                killquack();
-                return;
-            }
-
-
-            /*if (playing != null) playing.Pitch = equippedDuck.quackPitch;*/
-            if(equippedDuck.IsQuacking()) {
-                if (playing == null)
-                {
-                    playing = SFX.Play(Mod.GetPath<EdoMod>("SFX\\bleep_ss"), 1f, 0f, 0f, true);
-                }
-            }
-            else killquack();
-        }
-
-        public override void Terminate()
-        {
-            killquack();
-            base.Terminate();
-        }
-
         public static string hatName = "[Censored]";
 
         public static string hatPath = "hats\\censored";
@@ -60,7 +23,52 @@
         public CensoredHat(float x, float y, Team t)
             : base(x, y, t)
         {
+            playing = null;
+        }
 
+        private Sound playing = null;
+
+        private void killquack()
+        {
+            if (playing != null)
+            {
+                playing.Kill();
+                playing = null;
+            }
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            
+            if (equippedDuck == null)
+            {
+                killquack();
+                return;
+            } else
+            {
+                if (playing != null)
+                {
+                    playing.Pitch = equippedDuck.inputProfile.leftTrigger - equippedDuck.inputProfile.rightTrigger;
+                }
+            }
+            /*if (playing != null) playing.Pitch = equippedDuck.quackPitch;*/
+
+            if (!equippedDuck.IsQuacking()) killquack();
+        }
+
+        public override void Terminate()
+        {
+            killquack();
+            base.Terminate();
+        }
+
+        public override void Quack(float volume, float pitch)
+        {
+            if (playing == null)
+            {
+                playing = SFX.Play(Mod.GetPath<EdoMod>("SFX\\bleep_ss"), volume, pitch, 0f, true);
+            }
         }
     }
 }

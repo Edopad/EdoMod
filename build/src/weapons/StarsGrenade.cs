@@ -1,6 +1,6 @@
 ﻿namespace DuckGame.EdoMod
 {
-    //[EditorGroup("EdoMod|misc")]
+    [EditorGroup("guns|explosives")]
     public class StarsGrenade : Grenade
     {
         public StateBinding _realTimerStateBinding = new StateBinding("_realTimer");
@@ -31,7 +31,7 @@
         public StarsGrenade(float xpos, float ypos) :
             base(xpos, ypos)
         {
-            sprite = new SpriteMap(Mod.GetPath<EdoMod>("weapons\\concussionGrenade"), 8, 10);
+            sprite = new SpriteMap(Mod.GetPath<EdoMod>("weapons\\SSGrenade"), 8, 10);
             graphic = sprite;
             center = new Vec2(4f, 5f);
             _holdOffset = new Vec2(-2f, 2f);

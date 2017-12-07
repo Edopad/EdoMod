@@ -16,6 +16,9 @@ namespace DuckGame.EdoMod
             teamSpawnsDone = new Dictionary<TeamHat, Cape>();
             AutoUpdatables.Add(this);
             instance = this;
+
+            DuckGame.DevConsole.Log(ModLoader.currentModLoadString, Color.White);
+
         }
 
         public void Update()
@@ -53,6 +56,8 @@ namespace DuckGame.EdoMod
                                 ReplaceHat(teamHat, new PiesHat(teamHat.x, teamHat.y, teamHat.team));
                             if (FinnerHat.isHat(teamHat))
                                 ReplaceHat(teamHat, new FinnerHat(teamHat.x, teamHat.y, teamHat.team));
+                            if (DJHat.isHat(teamHat))
+                                ReplaceHat(teamHat, new DJHat(teamHat.x, teamHat.y, teamHat.team));
                             //Developer Hats
                             if (DenHat.isHat(teamHat))
                                 ReplaceHat(teamHat, new DenHat(teamHat.x, teamHat.y, teamHat.team));

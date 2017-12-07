@@ -3,3 +3,8 @@ C:\Users\adminmig\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Debug\EdoMod.dll
 C:\Users\adminmig\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Debug\EdoMod.pdb
 C:\Users\adminmig\Documents\DuckGame\Mods\EdoMod\EdoMod.dll
 C:\Users\adminmig\Documents\DuckGame\Mods\EdoMod\EdoMod.pdb
+C:\Users\mgrant\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Debug\EdoMod.csprojResolveAssemblyReference.cache
+C:\Users\mgrant\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Debug\EdoMod.dll
+C:\Users\mgrant\Documents\DuckGame\Mods\EdoMod\build\obj\x86\Debug\EdoMod.pdb
+C:\Users\mgrant\Documents\DuckGame\Mods\EdoMod\EdoMod.dll
+C:\Users\mgrant\Documents\DuckGame\Mods\EdoMod\EdoMod.pdb

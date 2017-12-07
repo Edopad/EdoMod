@@ -45,6 +45,13 @@
                 killquack();
                 return;
             }
+            else
+            {
+                if (playing != null)
+                {
+                    playing.Pitch = equippedDuck.inputProfile.leftTrigger - equippedDuck.inputProfile.rightTrigger;
+                }
+            }
             /*if (playing != null) playing.Pitch = equippedDuck.quackPitch;*/
 
             if (!equippedDuck.IsQuacking()) killquack();
@@ -60,7 +67,7 @@
         {
             if (playing == null)
             {
-                playing = SFX.Play(Mod.GetPath<EdoMod>("SFX\\breadfish"), volume, -pitch, 0f, true);
+                playing = SFX.Play(Mod.GetPath<EdoMod>("SFX\\breadfish"), volume, pitch, 0f, true);
             }
         }
     }

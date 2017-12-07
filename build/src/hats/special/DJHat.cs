@@ -30,7 +30,7 @@ namespace DuckGame.EdoMod
 
         public override void Quack(float volume, float pitch)
         {
-            SFX.Play(Mod.GetPath<EdoMod>("SFX\\djscratch"), volume, pitch);
+            SFX.Play(Mod.GetPath<EdoMod>("SFX\\djscratch_short"), volume, pitch);
             Music.SwitchSongs();
         }
     }
