@@ -32,7 +32,8 @@ namespace DuckGame.EdoMod
 
         public override void Quack(float volume, float pitch)
         {
-            Level.Add(new ToBeContinued(x, y));
+            if(ModSettings.enableDevEggs)
+                Level.Add(new ToBeContinued(x, y));
             if (pitch > 0.95f)
             {
                 if (equippedDuck == null) return;

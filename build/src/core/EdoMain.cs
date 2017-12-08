@@ -67,7 +67,12 @@ namespace DuckGame.EdoMod
                                 ReplaceHat(teamHat, new UpsideHat(teamHat.x, teamHat.y, teamHat.team));
                             //turbans
                             if (TurbanData.find(teamHat.sprite.texture.textureIndex) != null)
-                                ReplaceHat(teamHat, new Turban(teamHat.x, teamHat.y, teamHat.team));
+                            {
+                                Turban turban = new Turban(teamHat.x, teamHat.y, teamHat.team);
+                                ReplaceHat(teamHat, turban);
+                                SpawnCape(turban, new Sprite(Mod.GetPath<EdoMod>("capes\\king")).texture);
+                            }
+                                
                         }
                         /*if(!(teamHat is Turban))
                         {

@@ -6,7 +6,7 @@ namespace DuckGame.EdoMod
 {
     [BaggedProperty("isFatal", false)]
     [BaggedProperty("canSpawn", true)]
-    [EditorGroup("guns|explosives")]
+    [EditorGroup("EdoMod")]
     public class ToBeContinued : Grenade
     {
         public StateBinding _realTimerStateBinding = new StateBinding("_realTimer");

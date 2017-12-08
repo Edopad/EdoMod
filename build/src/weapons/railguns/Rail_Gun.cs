@@ -1,6 +1,6 @@
 ﻿namespace DuckGame.EdoMod
 {
-    [EditorGroup("EdoMod|Weapons|guns")]
+    [EditorGroup("EdoMod")]
     public class RailGun : Gun
     {
         public StateBinding _aimAngleStateBinding = new StateBinding("_aimAngle");

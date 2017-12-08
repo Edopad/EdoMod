@@ -14,7 +14,7 @@ using System.Xml.Linq;
 //[1.5.0.0] "I put spongebob music over Duck Game!"
 //[1.0.0.0] "There's a hat for that!"
 //[0.0.0.0] "Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.5.3.2")]
+[assembly: AssemblyVersion("1.6.0.0")]
 
 namespace DuckGame.EdoMod
 {

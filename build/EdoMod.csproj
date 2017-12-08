@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="DuckGame">
       <HintPath>..\..\..\..\..\..\..\SteamGames\steamapps\common\Duck Game\DuckGame.exe</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
@@ -47,6 +48,7 @@
     </Reference>
     <Reference Include="Steam">
       <HintPath>..\..\..\..\..\..\..\SteamGames\steamapps\common\Duck Game\Steam.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\stuff\blocks\VioletBlock.cs" />
     <Compile Include="src\core\DynamicMojo.cs" />
     <Compile Include="src\core\EdoDuck.cs" />
     <Compile Include="src\core\EdoLogo.cs" />
@@ -81,17 +84,22 @@
     <Compile Include="src\core\FriendManager.cs" />
     <Compile Include="src\hats\turban\Turban.cs" />
     <Compile Include="src\hats\turban\TurbanData.cs" />
+    <Compile Include="src\stuff\props\MetalShield.cs" />
+    <Compile Include="src\stuff\props\RiotShield.cs" />
+    <Compile Include="src\weapons\grenades\DeadlySun.cs" />
     <Compile Include="src\weapons\railguns\ammo\ATFail.cs" />
     <Compile Include="src\weapons\railguns\ammo\ATMail.cs" />
     <Compile Include="src\weapons\railguns\ammo\ATRail.cs" />
+    <Compile Include="src\weapons\railguns\ammo\DynamicAmmoType.cs" />
+    <Compile Include="src\weapons\railguns\ammo\DynamicBullet.cs" />
     <Compile Include="src\weapons\railguns\Fail_Gun.cs" />
     <Compile Include="src\weapons\railguns\Mail_Gun.cs" />
     <Compile Include="src\weapons\railguns\Rail_Gun.cs" />
     <Compile Include="src\weapons\TBCGrenadeBase.cs" />
-    <Compile Include="src\weapons\ToBeContinued.cs" />
+    <Compile Include="src\weapons\grenades\ToBeContinued.cs" />
     <Compile Include="src\weapons\Tubthumper.cs" />
-    <Compile Include="src\weapons\StarDuckHandler.cs" />
-    <Compile Include="src\weapons\StarsGrenade.cs" />
+    <Compile Include="src\weapons\grenades\StarDuckHandler.cs" />
+    <Compile Include="src\weapons\grenades\StarsGrenade.cs" />
     <Compile Include="src\weapons\StarHandler.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿namespace DuckGame.EdoMod
 {
-    [EditorGroup("EdoMod|Weapons|guns")]
+    [EditorGroup("EdoMod")]
     public class FailGun : Gun
     {
         private SpriteMap sprite;

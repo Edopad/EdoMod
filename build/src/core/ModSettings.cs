@@ -9,6 +9,7 @@ namespace DuckGame.EdoMod
     {
         /*Mod Settings*/
         public static bool enableDevHats = false;
+        public static bool enableDevEggs = false;
         public static bool quackworkaround = false;
         public static bool enableCustomIntro = true;
         public static bool enableDangerousInjections = true;
