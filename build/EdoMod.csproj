@@ -59,7 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\core\EdoSFX.cs" />
     <Compile Include="src\core\ExNetSFX.cs" />
     <Compile Include="src\stuff\blocks\VioletBlock.cs" />
     <Compile Include="src\core\DynamicMojo.cs" />
