@@ -78,11 +78,13 @@ namespace DuckGame.EdoMod
         }
         public void setquack(string[] paths)
         {
-            quackeff = new NetSoundEffect(paths);
+            quackeff = new ExNetSFX(paths) as NetSoundEffect;
+            //quackeff = new NetSoundEffect(paths);
         }
         public void setquack(List<string> common, List<string> rare)
         {
-            quackeff = new NetSoundEffect(common, rare);
+            quackeff = new ExNetSFX(common, rare) as NetSoundEffect;
+            //quackeff = new NetSoundEffect(common, rare);
         }
 
         public override void Quack(float volume, float pitch)

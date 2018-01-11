@@ -36,6 +36,17 @@ namespace DuckGame.EdoMod
                 MethodInfo newer = typeof(EdoDuck).GetMethod("UpdateMove", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
                 DynamicMojo.SwapMethodBodies(newer, orig);
             }
+
+            {
+                MethodInfo orig = typeof(EdoSFX).GetMethod("_Play", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                MethodInfo newer = typeof(SFX).GetMethod("Play", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                DynamicMojo.SwapMethodBodies(newer, orig);
+            }
+            {
+                MethodInfo orig = typeof(SFX).GetMethod("Play", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                MethodInfo newer = typeof(EdoSFX).GetMethod("Play", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                DynamicMojo.SwapMethodBodies(newer, orig);
+            }
         }
 
         // This function is run before all mods are finished loading.
