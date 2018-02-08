@@ -14,7 +14,7 @@ using System.Xml.Linq;
 //[1.5.0.0] "I put spongebob music over Duck Game!"
 //[1.0.0.0] "There's a hat for that!"
 //[0.0.0.0] "Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.6.0.0")]
+[assembly: AssemblyVersion("1.6.0.8")]
 
 namespace DuckGame.EdoMod
 {
@@ -167,6 +167,8 @@ namespace DuckGame.EdoMod
             new TurbanData("Groot", "hats\\groot", GetPath<EdoMod>("SFX\\groot\\groot-1"));
             //MGS Alert
             new TurbanData("MGS", "hats\\mgs", GetPath<EdoMod>("SFX\\mgs"));
+            //Show Me What You Got! - Rick and Morty
+            new TurbanData("Rocks", "hats\\ShowMeWhatYouGot", GetPath<EdoMod>("SFX\\hats\\ShowMeWhatYouGot"));
 
             //Heavy Rain Glitch ("Press X to Shaun!")
             /*string[] quacks = {
@@ -207,6 +209,9 @@ namespace DuckGame.EdoMod
             CensoredHat.addHat();
             //Have you ever seen the marvelous breadfish?
             BreadfishHat.addHat();
+            //Annoying Google Ad.
+            AdsHat.addHat();
+
             //NO! (mutes other hats via brute force)
             NoHat.addHat();
             //Bomb!

@@ -43,6 +43,8 @@ namespace DuckGame.EdoMod
                                 ReplaceHat(teamHat, new CensoredHat(teamHat.x, teamHat.y, teamHat.team));
                             if (BreadfishHat.isHat(teamHat))
                                 ReplaceHat(teamHat, new BreadfishHat(teamHat.x, teamHat.y, teamHat.team));
+                            if (AdsHat.isHat(teamHat))
+                                ReplaceHat(teamHat, new AdsHat(teamHat.x, teamHat.y, teamHat.team));
                             //Special Ability Hats
                             if (NoHat.isHat(teamHat))
                                 ReplaceHat(teamHat, new NoHat(teamHat.x, teamHat.y, teamHat.team));

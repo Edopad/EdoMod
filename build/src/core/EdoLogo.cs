@@ -23,7 +23,12 @@ namespace DuckGame.EdoMod
         public override void Initialize()
         {
             this._font = new BitmapFont("biosFont", 8, -1);
-            this._logo = new Sprite(EdoMod.GetPath<EdoMod>("images\\logo"), 0f, 0f);
+
+            string[] cutsomPaths = { "images\\logo" , "images\\corptron2", "images\\mojang"};
+
+            string path = cutsomPaths[Rando.Int(2)];
+
+            this._logo = new Sprite(EdoMod.GetPath<EdoMod>(path), 0f, 0f);
             Graphics.fade = 0f;
         }
 

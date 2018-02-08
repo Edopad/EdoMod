@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\core\ExNetSFX.cs" />
+    <Compile Include="src\hats\special\AdsHat.cs" />
     <Compile Include="src\stuff\blocks\VioletBlock.cs" />
     <Compile Include="src\core\DynamicMojo.cs" />
     <Compile Include="src\core\EdoDuck.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="src\weapons\railguns\Fail_Gun.cs" />
     <Compile Include="src\weapons\railguns\Mail_Gun.cs" />
     <Compile Include="src\weapons\railguns\Rail_Gun.cs" />
+    <Compile Include="src\weapons\railguns\Scale_Gun.cs" />
     <Compile Include="src\weapons\TBCGrenadeBase.cs" />
     <Compile Include="src\weapons\grenades\ToBeContinued.cs" />
     <Compile Include="src\weapons\Tubthumper.cs" />
