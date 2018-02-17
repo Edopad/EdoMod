@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="src\core\ExNetSFX.cs" />
     <Compile Include="src\hats\special\AdsHat.cs" />
+    <Compile Include="src\hats\special\AndIHat.cs" />
     <Compile Include="src\stuff\blocks\VioletBlock.cs" />
     <Compile Include="src\core\DynamicMojo.cs" />
     <Compile Include="src\core\EdoDuck.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="src\hats\turban\TurbanData.cs" />
     <Compile Include="src\stuff\props\MetalShield.cs" />
     <Compile Include="src\stuff\props\RiotShield.cs" />
+    <Compile Include="src\weapons\FirinMyLaser.cs" />
     <Compile Include="src\weapons\grenades\DeadlySun.cs" />
     <Compile Include="src\weapons\railguns\ammo\ATFail.cs" />
     <Compile Include="src\weapons\railguns\ammo\ATMail.cs" />

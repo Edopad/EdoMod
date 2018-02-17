@@ -90,6 +90,7 @@ namespace DuckGame.EdoMod
                 }
                 if(_detonationTrigger == 10)
                 {
+                    SFX.KillAllSounds();
                     Thread.Sleep(4000);
                     Layer.Game.colorMul = 
                     Layer.Glow.colorMul = 

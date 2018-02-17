@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DuckGame.EdoMod.src.weapons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -45,6 +46,8 @@ namespace DuckGame.EdoMod
                                 ReplaceHat(teamHat, new BreadfishHat(teamHat.x, teamHat.y, teamHat.team));
                             if (AdsHat.isHat(teamHat))
                                 ReplaceHat(teamHat, new AdsHat(teamHat.x, teamHat.y, teamHat.team));
+                            if (AndIHat.isHat(teamHat))
+                                ReplaceHat(teamHat, new AndIHat(teamHat.x, teamHat.y, teamHat.team));
                             //Special Ability Hats
                             if (NoHat.isHat(teamHat))
                                 ReplaceHat(teamHat, new NoHat(teamHat.x, teamHat.y, teamHat.team));
@@ -101,6 +104,32 @@ namespace DuckGame.EdoMod
                         if (teamSpawnsDone.TryGetValue(teamHat, out cape))
                             Level.Remove(cape);
                         teamSpawnsDone.Remove(teamHat);
+                    }
+                }
+
+                //DIVEKICK!
+                //Duck.grounded
+
+                IEnumerable<Thing> ducks = Level.current.things[typeof(Duck)];
+                foreach(Duck duck in ducks)
+                {
+                    if(!duck.grounded && duck.sliding)
+                    {
+                        //Duck target = Level.current.NearestThing<Duck>(duck.position);
+                        foreach(Duck target in ducks)
+                        {
+                            //can't target null or self
+                            if (target == null || target == duck) continue;
+                            //can't kill a dead target
+                            if (target.dead) continue;
+                            //near to duck && falling down
+                            if ((target.position - duck.position).length < 10f && duck.velocity.y > 0)
+                            {
+                                //Performed DIIIVE KICK!
+                                SFX.Play(EdoMod.GetPath<EdoMod>("SFX\\DiveKick"));
+                                target.Kill(new DTImpact(duck));
+                            }
+                        }
                     }
                 }
             }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DuckGame.EdoMod
 {
-    [EditorGroup("EdoMod")]
+    //[EditorGroup("EdoMod")]
     /*[BaggedProperty("isSuperWeapon", true)]*/
     public class ScaleGun : Gun
     {
@@ -54,6 +54,15 @@ namespace DuckGame.EdoMod
                     if (!Level.CheckCircleAll<PhysicsObject>(Offset(barrelOffset) + 90f * new Vec2((float)Math.Cos(ang), (float)Math.Sin(ang)), 90f).Contains(_target) || Level.CheckLine<Block>(Offset(barrelOffset), _target.position, _target) != null)
                     {
                         _target = null;
+                    }
+                }
+                if(_target != null)
+                {
+                    _target.scale /= 1.1f;
+                    if (_target.scale.x < 0.1f || _target.scale.y < 0.1f)
+                    {
+                        if(_target is Duck)
+                        ((Duck)_target).Kill(new DTImpact(this));
                     }
                 }
             }

@@ -26,7 +26,7 @@ namespace DuckGame.EdoMod
 
             string[] cutsomPaths = { "images\\logo" , "images\\corptron2", "images\\mojang"};
 
-            string path = cutsomPaths[Rando.Int(2)];
+            string path = cutsomPaths[2];
 
             this._logo = new Sprite(EdoMod.GetPath<EdoMod>(path), 0f, 0f);
             Graphics.fade = 0f;

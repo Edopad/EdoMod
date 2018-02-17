@@ -14,7 +14,7 @@ using System.Xml.Linq;
 //[1.5.0.0] "I put spongebob music over Duck Game!"
 //[1.0.0.0] "There's a hat for that!"
 //[0.0.0.0] "Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.6.0.8")]
+[assembly: AssemblyVersion("1.6.2.0")]
 
 namespace DuckGame.EdoMod
 {
@@ -108,7 +108,7 @@ namespace DuckGame.EdoMod
 
             //NEW to 1.3.8.4
             //Sarah. "GET OFF THE ROAD BIKERS!"
-            Teams.core.teams.Add(new Team("Sarah", GetPath<EdoMod>("hats\\sarah")));
+            //Teams.core.teams.Add(new Team("Sarah", GetPath<EdoMod>("hats\\sarah")));
             //Hammerhead shark. Self explanatory.
             Teams.core.teams.Add(new Team("Hammerhead", GetPath<EdoMod>("hats\\hammerhead")));
             //Flipping amazing.
@@ -164,7 +164,10 @@ namespace DuckGame.EdoMod
             //Jar Jar Binks, "Oh no!" -Star Wars
             new TurbanData("Binks", "hats\\Jar-Jar-Binks-icon", GetPath<EdoMod>("SFX\\ohno"));
             //Guardians of the Galaxy : Groot
-            new TurbanData("Groot", "hats\\groot", GetPath<EdoMod>("SFX\\groot\\groot-1"));
+            new TurbanData("Groot", "hats\\groot", new[] {
+                GetPath<EdoMod>("SFX\\hats\\Groot\\IAmGroot1"),
+                GetPath<EdoMod>("SFX\\hats\\Groot\\IAmGroot2")
+            });
             //MGS Alert
             new TurbanData("MGS", "hats\\mgs", GetPath<EdoMod>("SFX\\mgs"));
             //Show Me What You Got! - Rick and Morty
@@ -211,6 +214,8 @@ namespace DuckGame.EdoMod
             BreadfishHat.addHat();
             //Annoying Google Ad.
             AdsHat.addHat();
+            //Annnddd IIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            AndIHat.addHat();
 
             //NO! (mutes other hats via brute force)
             NoHat.addHat();
@@ -237,6 +242,9 @@ namespace DuckGame.EdoMod
                 //Supposed to invert (vertically) the appearance of the duck.
                 UpsideHat.addHat();
             }
+            //Jar Jar Binks, "Oh no!" -Star Wars
+            //new TurbanData("Lasers", "weapons\\firinMyLaser", GetPath<EdoMod>("SFX\\hats\\ImFirinMyLaser"));
+            //FirinMyLaser.addHat();
 
             base.OnPostInitialize();
 
