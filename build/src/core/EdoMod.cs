@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Xml.Linq;
+using Microsoft.Xna.Framework.Audio;
 
 [assembly: AssemblyTitle("Michael's Hat Pack")]
 [assembly: AssemblyCompany("Edopad")]
@@ -14,7 +15,7 @@ using System.Xml.Linq;
 //[1.5.0.0] "I put spongebob music over Duck Game!"
 //[1.0.0.0] "There's a hat for that!"
 //[0.0.0.0] "Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.6.2.0")]
+[assembly: AssemblyVersion("1.6.3.0")]
 
 namespace DuckGame.EdoMod
 {
@@ -56,6 +57,12 @@ namespace DuckGame.EdoMod
                 DynamicMojo.SwapMethodBodies(newer, orig);
             }
             if (ModSettings.enableDangerousInjections) DoDangerousInjections();
+            
+            //var sfxdict = typeof(SFX).GetField("_sounds", BindingFlags.Static | BindingFlags.NonPublic);
+            /*FieldInfo sounds = typeof(SFX).GetField("_sounds", BindingFlags.Static | BindingFlags.NonPublic);
+            Dictionary<string, SoundEffect> _sounds = ( Dictionary < string, SoundEffect> ) sounds.GetValue(null);
+            _sounds["shotgunFire2"] = _sounds[GetPath<EdoMod>("SFX\\humpday")];
+            SFX.Play("shotgunFire2");*/
 
             base.OnPreInitialize();
         }
@@ -68,6 +75,10 @@ namespace DuckGame.EdoMod
         // This function is run after all mods are loaded.
         protected override void OnPostInitialize()
         {
+            /*FieldInfo sounds = typeof(SFX).GetField("_sounds", BindingFlags.Static | BindingFlags.NonPublic);
+            Dictionary<string, SoundEffect> _sounds = (Dictionary<string, SoundEffect>)sounds.GetValue(null);
+            _sounds["shotgunFire2"] = _sounds[GetPath<EdoMod>("SFX\\humpday")];
+            SFX.Play("shotgunFire2");*/
 
             //TODO:
             //add Thomas the Train hat

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using Microsoft.Xna.Framework.Audio;
 
 namespace DuckGame.EdoMod
 {
@@ -10,13 +12,53 @@ namespace DuckGame.EdoMod
     {
         private IDictionary<TeamHat, Cape> teamSpawnsDone;
 
+        private static Dictionary<string, SoundEffect> _sounds;
+
+        //replacement sound effects 
+        private static Dictionary<string, Tuple<float, string>[]> _sfxr = new Dictionary<string, Tuple<float, string>[]>();
+
+        //a backup of replacement sound effects original SoundEffect(s).
+        private static Dictionary<string, SoundEffect> _sounds_bak = new Dictionary<string, SoundEffect>();
+        
+
         public static EdoMain instance;
 
         public EdoMain()
         {
+            //static initialization for SFX replacement definitions
+            //these still need to be runtime due to mod paths.
+            //if these get big enough they will cause lag on game entry,
+            //so they will need to be moved to EdoMod.cs
+            //
+            //values are based on 10-game, 4-player sessions. (3 deaths * 10 rounds = 30 deaths/session avg.)
+            _sfxr["death"] = new[]{
+                Tuple.Create(2f / 30f, Mod.GetPath<EdoMod>("SFX\\RobloxDeath")), //2 per session
+                Tuple.Create(1f / 120f, Mod.GetPath<EdoMod>("SFX\\RobloxDeathSlow")) //1 per 4 sessions
+            };
+
+            
+
+            //some stuff left over from UFFMod a long time age; should probably be cleaned up but I'm too lazy
             teamSpawnsDone = new Dictionary<TeamHat, Cape>();
+            //here so this gets added to the list of things to update each frame
             AutoUpdatables.Add(this);
+            //because many things are effectively static, but AutoUpdatables requires this to be an object for frame updates
             instance = this;
+
+            if (ModSettings.enableDangerousInjections)
+            {
+                //create a pointer to the '_sounds' field in the SFX class.
+                FieldInfo sounds = typeof(SFX).GetField("_sounds", BindingFlags.Static | BindingFlags.NonPublic);
+                _sounds = (Dictionary<string, SoundEffect>)sounds.GetValue(null);
+
+                //store a backup of the intended sfx's
+                foreach (string key in _sfxr.Keys)
+                {
+                    _sounds_bak[key] = _sounds[key];
+                }
+                //_sounds["shotgunFire2"] = _sounds[Mod.GetPath<EdoMod>("SFX\\MansNotQuack")];
+
+            }
 
             DuckGame.DevConsole.Log(ModLoader.currentModLoadString, Color.White);
 
@@ -24,10 +66,37 @@ namespace DuckGame.EdoMod
 
         public void Update()
         {
+            //some basic error checking
             if (Level.current == null
                 || Steam.user == null)
                 return;
 
+            //fancy SFX replacement. yeah yeah, it's per frame, whatever. deal with it.
+            if (ModSettings.enableDangerousInjections)
+            {
+                foreach(KeyValuePair<string, Tuple<float, string>[]> entry in _sfxr)
+                {
+                    if (entry.Value.Length > 0) {
+                        bool changed = false;
+                        foreach (Tuple<float, string> val in entry.Value)
+                        {
+                            //no breaking is done intentionally. later entries have priority.
+                            if (Rando.Float(0.0f, 1.0f) < val.Item1)
+                            {
+                                _sounds[entry.Key] = _sounds[val.Item2];
+                                changed = true;
+                            }
+                        }
+                        //if not changed, reset to default
+                        if (!changed)
+                            _sounds[entry.Key] = _sounds_bak[entry.Key];
+                    }
+                }
+
+            }
+            
+
+            //hat replacement
             if (!(Level.current is Editor))
             {
                 IEnumerable<Thing> teamHatList = Level.current.things[typeof(TeamHat)];
