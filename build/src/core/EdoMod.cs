@@ -136,7 +136,7 @@ namespace DuckGame.EdoMod
             Teams.core.teams.Add(new Team("Mutants", GetPath<EdoMod>("hats\\duomutant")));
             Teams.core.teams.Add(new Team("Sheep", GetPath<EdoMod>("hats\\sheep")));
             //Teams.core.teams.Add(new Team(, GetPath<EdoMod>()));
-            new TurbanData("Rainbows", "hats\\rainbows", GetPath<EdoMod>("SFX\\RAINBOWS_long"));
+            new TurbanData("Rainbows", "hats\\rainbows", GetPath<EdoMod>("SFX\\hats\\Rainbows_long_AMP"));
             Teams.core.teams.Add(new Team("Google", GetPath<EdoMod>("hats\\google")));
 
             new TurbanData("Bigmouth", "hats\\unu1", GetPath<EdoMod>("SFX\\waa"));
@@ -171,9 +171,9 @@ namespace DuckGame.EdoMod
             //Just a firetruck.
             new TurbanData("Fire", "hats\\firetruck", GetPath<EdoMod>("SFX\\firehorn_short"));
             //Finding Nemo: "Mine!" Seagulls
-            new TurbanData("Gulls", "hats\\gull", GetPath<EdoMod>("SFX\\mine"));
+            new TurbanData("Gulls", "hats\\gull", GetPath<EdoMod>("SFX\\hats\\Mine_2"));
             //Jar Jar Binks, "Oh no!" -Star Wars
-            new TurbanData("Binks", "hats\\Jar-Jar-Binks-icon", GetPath<EdoMod>("SFX\\ohno"));
+            new TurbanData("Binks", "hats\\jarjar", GetPath<EdoMod>("SFX\\ohno"));
             //Guardians of the Galaxy : Groot
             new TurbanData("Groot", "hats\\groot", new[] {
                 GetPath<EdoMod>("SFX\\hats\\Groot\\IAmGroot1"),
@@ -199,22 +199,28 @@ namespace DuckGame.EdoMod
             //Shia LaBeouf's inspirational speech
             new TurbanData("Shia", "hats\\LaBeouf",
             new[] {
-                GetPath<EdoMod>("SFX\\justdoit\\yesyoucan"),
-                GetPath<EdoMod>("SFX\\justdoit\\dontletyourdreamsbedreams"),
-                GetPath<EdoMod>("SFX\\justdoit\\justdoit"),
-                GetPath<EdoMod>("SFX\\justdoit\\justdoit_2"),
-                GetPath<EdoMod>("SFX\\justdoit\\no"),
-                GetPath<EdoMod>("SFX\\justdoit\\nothingisimpossible"),
-                GetPath<EdoMod>("SFX\\justdoit\\stopgivingup"),
-                GetPath<EdoMod>("SFX\\justdoit\\doit")
+                GetPath<EdoMod>("SFX\\hats\\Shia\\YesYouCan"),
+                GetPath<EdoMod>("SFX\\hats\\Shia\\DontLetYourDreamsBeDreams"),
+                GetPath<EdoMod>("SFX\\hats\\Shia\\JustDoIt"),
+                GetPath<EdoMod>("SFX\\hats\\Shia\\JustDoIt_2"),
+                GetPath<EdoMod>("SFX\\hats\\Shia\\No"),
+                GetPath<EdoMod>("SFX\\hats\\Shia\\NothingIsImpossible"),
+                GetPath<EdoMod>("SFX\\hats\\Shia\\StopGivingUp"),
+                GetPath<EdoMod>("SFX\\hats\\Shia\\DoIt")
             });
 
             new TurbanData("JG Wentworth", "hats\\money", new[] {
-                GetPath<EdoMod>("SFX\\jgwentworth\\immainin_1"),
-                GetPath<EdoMod>("SFX\\jgwentworth\\immainin_2"),
-                GetPath<EdoMod>("SFX\\jgwentworth\\immainin_3"),
-                GetPath<EdoMod>("SFX\\jgwentworth\\immainin_4"),
-                GetPath<EdoMod>("SFX\\jgwentworth\\immainin_5")
+                GetPath<EdoMod>("SFX\\hats\\JGWentworth\\IMMAININ_1"),
+                GetPath<EdoMod>("SFX\\hats\\JGWentworth\\IMMAININ_2"),
+                GetPath<EdoMod>("SFX\\hats\\JGWentworth\\IMMAININ_3"),
+                GetPath<EdoMod>("SFX\\hats\\JGWentworth\\IMMAININ_4"),
+                GetPath<EdoMod>("SFX\\hats\\JGWentworth\\IMMAININ_5")
+            });
+
+            new TurbanData("Trump", "hats\\trump", new[] {
+                GetPath<EdoMod>("SFX\\hats\\Trump\\ImReallyRich"),
+                GetPath<EdoMod>("SFX\\hats\\Trump\\WeNeedToBuildAWall"),
+                GetPath<EdoMod>("SFX\\hats\\Trump\\YoureFired")
             });
 
             //Special Hats! These do things!
