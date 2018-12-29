@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace DuckGame.EdoMod.src.core
+namespace DuckGame.EdoMod
 {
     public static class DynamicMojo
     {

@@ -45,7 +45,7 @@ namespace DuckGame.EdoMod
             //because many things are effectively static, but AutoUpdatables requires this to be an object for frame updates
             instance = this;
 
-            if (ModSettings.enableDangerousInjections)
+            if (ModSettings.enableCustomSFX)
             {
                 //create a pointer to the '_sounds' field in the SFX class.
                 FieldInfo sounds = typeof(SFX).GetField("_sounds", BindingFlags.Static | BindingFlags.NonPublic);

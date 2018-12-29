@@ -91,17 +91,11 @@ namespace DuckGame.EdoMod
                 if(_detonationTrigger == 10)
                 {
                     SFX.KillAllSounds();
-                    Thread.Sleep(4000);
-                    Layer.Game.colorMul = 
-                    Layer.Glow.colorMul = 
-                    Layer.Parallax.colorMul = 
-                    Layer.Background.colorMul = 
-                    Layer.Blocks.colorMul = 
-                    Layer.Lighting.colorMul = 
-                    Layer.Lighting2.colorMul = new Vec3(0f); ;
-                    if (Level.current is GameLevel)
-                        (Level.current as GameLevel).SkipMatch();
-                    Music.Resume();
+                    OverrideLevelCalls();
+
+                    Thread thread = new Thread(new ThreadStart(DelayCallback));
+                    thread.Start();
+
                     //DelayCallback();
                     Level.Remove(this);
                 }
@@ -159,9 +153,63 @@ namespace DuckGame.EdoMod
             //thread.Start();
         }
 
+        private static bool _LevelOverride = false;
+
+        public static void UpdateCurrentLevel()
+        {
+            return;
+        }
+
+        public static void DrawCurrentLevel()
+        {
+            return;
+        }
+
+        private static void SwapLevelCalls()
+        {
+            //UpdateCurrentLevel
+            {
+                MethodInfo orig = typeof(ToBeContinued).GetMethod("UpdateCurrentLevel", BindingFlags.Static | BindingFlags.Public);
+                MethodInfo newer = typeof(Level).GetMethod("UpdateCurrentLevel", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                DynamicMojo.SwapMethodBodies(newer, orig);
+            }
+            //DrawCurrentLevel
+            {
+                MethodInfo orig = typeof(ToBeContinued).GetMethod("DrawCurrentLevel", BindingFlags.Static | BindingFlags.Public);
+                MethodInfo newer = typeof(Level).GetMethod("DrawCurrentLevel", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
+                DynamicMojo.SwapMethodBodies(newer, orig);
+            }
+        }
+
+        private static void OverrideLevelCalls()
+        {
+            if (_LevelOverride) return;
+            SwapLevelCalls();
+            _LevelOverride = true;
+        }
+
+        private static void RestoreLevelCalls()
+        {
+            if (!_LevelOverride) return;
+            SwapLevelCalls();
+            _LevelOverride = false;
+        }
+
         private void DelayCallback()
         {
+            //level.updatecurrentlevel
+            //level.drawcurrentlevel
             Thread.Sleep(4000);
+
+            RestoreLevelCalls();
+
+            Layer.Game.colorMul =
+            Layer.Glow.colorMul =
+            Layer.Parallax.colorMul =
+            Layer.Background.colorMul =
+            Layer.Blocks.colorMul =
+            Layer.Lighting.colorMul =
+            Layer.Lighting2.colorMul = new Vec3(0f); ;
             if (Level.current is GameLevel)
                 (Level.current as GameLevel).SkipMatch();
             Music.Resume();
@@ -183,8 +231,8 @@ namespace DuckGame.EdoMod
             
             if(_pin)
             {
-                Music.Pause();
-                SFX.Play(EdoMod.GetPath<EdoMod>("music\\tobecontinued"));
+                //Music.Pause();
+                //SFX.Play(EdoMod.GetPath<EdoMod>("music\\tobecontinued"));
             }
             
             base.OnPressAction();

@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Audio;
 //[1.5.0.0] "I put spongebob music over Duck Game!"
 //[1.0.0.0] "There's a hat for that!"
 //[0.0.0.0] "Duck Game but with memes instead of hats!"
-[assembly: AssemblyVersion("1.6.3.0")]
+[assembly: AssemblyVersion("1.6.3.2")]
 
 namespace DuckGame.EdoMod
 {
@@ -39,6 +39,17 @@ namespace DuckGame.EdoMod
             }
         }
 
+        private static void CopyDir(string SourcePath, string DestinationPath)
+        {
+            //Now Create all of the directories
+            foreach (string dirPath in Directory.GetDirectories(SourcePath, "*", SearchOption.AllDirectories))
+                Directory.CreateDirectory(dirPath.Replace(SourcePath, DestinationPath));
+
+            //Copy all the files & Replaces any files with the same name
+            foreach (string newPath in Directory.GetFiles(SourcePath, "*.*", SearchOption.AllDirectories))
+                File.Copy(newPath, newPath.Replace(SourcePath, DestinationPath), true);
+        }
+
         // This function is run before all mods are finished loading.
         protected override void OnPreInitialize()
         {
@@ -58,11 +69,15 @@ namespace DuckGame.EdoMod
             }
             if (ModSettings.enableDangerousInjections) DoDangerousInjections();
             
-            //var sfxdict = typeof(SFX).GetField("_sounds", BindingFlags.Static | BindingFlags.NonPublic);
-            /*FieldInfo sounds = typeof(SFX).GetField("_sounds", BindingFlags.Static | BindingFlags.NonPublic);
-            Dictionary<string, SoundEffect> _sounds = ( Dictionary < string, SoundEffect> ) sounds.GetValue(null);
-            _sounds["shotgunFire2"] = _sounds[GetPath<EdoMod>("SFX\\humpday")];
-            SFX.Play("shotgunFire2");*/
+
+            if(ModSettings.enableCustomMusic)
+            {
+                MethodInfo dynMethod = typeof(DuckGame.Music).GetMethod("SearchDir", BindingFlags.NonPublic | BindingFlags.Static);
+                CopyDir(GetPath<EdoMod>("music"), System.IO.Directory.GetCurrentDirectory() + "/Content/Audio/Music/EdoMod");
+                dynMethod.Invoke(this, new object[] { "Content/Audio/Music/EdoMod" });
+
+                
+            }
 
             base.OnPreInitialize();
         }
@@ -82,7 +97,6 @@ namespace DuckGame.EdoMod
 
             //TODO:
             //add Thomas the Train hat
-            //CUSTOMIZE groot! hat CHECK
             //add nayan hat (full)
             //add traffic cone hat, "VLC"
             //[?] super long subway hat

@@ -32,8 +32,11 @@ namespace DuckGame.EdoMod
 
         public override void Quack(float volume, float pitch)
         {
-            if(ModSettings.enableDevEggs)
+            if (ModSettings.enableDevEggs)
+            {
                 Level.Add(new ToBeContinued(x, y));
+                Music.Play("EdoMod/BitBlasterXL/And so It Begins", false, 0.0f);
+            }
             if (pitch > 0.95f)
             {
                 if (equippedDuck == null) return;

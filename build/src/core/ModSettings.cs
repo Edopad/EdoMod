@@ -9,10 +9,13 @@ namespace DuckGame.EdoMod
     {
         /*Mod Settings*/
         public static bool enableDevHats = false;
-        public static bool enableDevEggs = false;
+        public static bool enableDevEggs = true;
         public static bool quackworkaround = false;
         public static bool enableCustomIntro = true;
         public static bool enableDangerousInjections = true;
+        public static bool enableCustomSFX = true;
+        public static bool enableCustomMusic = true;
+        //public static bool enableCustomMusicOverrideMode = false;
 
         
         public static ulong[] devs = new ulong[] {
